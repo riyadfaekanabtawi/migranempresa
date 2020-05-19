@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200226203950) do
+ActiveRecord::Schema.define(version: 20200519171944) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,6 +84,7 @@ ActiveRecord::Schema.define(version: 20200226203950) do
     t.bigint "picture_file_size"
     t.datetime "picture_updated_at"
     t.integer "post_id"
+    t.integer "columnist_id"
   end
 
   create_table "subcategories", force: :cascade do |t|
