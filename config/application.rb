@@ -8,14 +8,8 @@ Bundler.require(*Rails.groups)
 
 module MiGranEmpresa
   class Application < Rails::Application
-    # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 5.1
+    # Initialize configuration defaults for originally generated Rails version
     #Check if we use Docker to allow docker ip through web-console
-    if ENV['DOCKERIZED'] == 'true'
-      config.web_console.whitelisted_ips = ENV['DOCKER_HOST_IP']
-    end
-    config.web_console.whitelisted_ips = '104.130.212.199'
-    config.web_console.whiny_requests = false
     #config.web_console.whitelisted_ips = '104.130.212.199'
     #config.web_console.whitelisted_ips = '201.103.242.244'
     #config.web_console.whiny_requests  = false
