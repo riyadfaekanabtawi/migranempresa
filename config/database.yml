@@ -26,4 +26,4 @@ production:
   username: mi_gran_empresa
   password: 121788gloriA
   timeout: 5000
-  host: migranempresa_db
+  host: localhost
