@@ -5,30 +5,30 @@
 <title>Mi Gran Empresa</title>
 
 <!-- Stylesheets -->
-<link href="/landing/css/bootstrap.css" rel="stylesheet">
-<link href="/landing/plugins/revolution/css/settings.css" rel="stylesheet" type="text/css"><!-- REVOLUTION SETTINGS STYLES -->
-<link href="/landing/plugins/revolution/css/layers.css" rel="stylesheet" type="text/css"><!-- REVOLUTION LAYERS STYLES -->
-<link href="/landing/plugins/revolution/css/navigation.css" rel="stylesheet" type="text/css"><!-- REVOLUTION NAVIGATION STYLES -->
-<link href="/landing/css/style.css" rel="stylesheet">
-<link href="/landing/css/responsive.css" rel="stylesheet">
+<link href="https://migranempresa.s3.us-east-2.amazonaws.com/landing/css/bootstrap.css" rel="stylesheet">
+<link href="https://migranempresa.s3.us-east-2.amazonaws.com/landing/plugins/revolution/css/settings.css" rel="stylesheet" type="text/css"><!-- REVOLUTION SETTINGS STYLES -->
+<link href="https://migranempresa.s3.us-east-2.amazonaws.com/landing/plugins/revolution/css/layers.css" rel="stylesheet" type="text/css"><!-- REVOLUTION LAYERS STYLES -->
+<link href="https://migranempresa.s3.us-east-2.amazonaws.com/landing/plugins/revolution/css/navigation.css" rel="stylesheet" type="text/css"><!-- REVOLUTION NAVIGATION STYLES -->
+<link href="https://migranempresa.s3.us-east-2.amazonaws.com/landing/css/style.css" rel="stylesheet">
+<link href="https://migranempresa.s3.us-east-2.amazonaws.com/landing/css/responsive.css" rel="stylesheet">
 
 <!--Color Themes-->
-<link id="theme-color-file" href="/landing/css/color-themes/default-theme.css" rel="stylesheet">
+<link id="theme-color-file" href="https://migranempresa.s3.us-east-2.amazonaws.com/landing/css/color-themes/default-theme.css" rel="stylesheet">
 
 <!--Favicon-->
-<link rel="shortcut icon" href="/landing/images/favicon.png" type="image/x-icon">
-<link rel="icon" href="/landing/images/favicon.png" type="image/x-icon">
+<link rel="shortcut icon" href="https://migranempresa.s3.us-east-2.amazonaws.com/landing/images/favicon.png" type="image/x-icon">
+<link rel="icon" href="https://migranempresa.s3.us-east-2.amazonaws.com/landing/images/favicon.png" type="image/x-icon">
 <!-- Responsive -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
 <% if @post %>
 
-   <meta property="og:url"           content="http://migranemrpesa.com/publicacion/<%= @post.company_name.gsub(' ','-') %>" />
+   <meta property="og:url"           content="https://migranemrpesa.com/publicacion/<%= @post.company_name.gsub(' ','-') %>" />
   <meta property="og:type"          content="<%= @post.company_name %>" />
   <meta property="og:title"         content="<%= @post.company_name %>" />
   <meta property="og:description"   content="<%= @post.company_description %>" />
-  <meta property="og:image"         content="http://migranempresa.com<%= @post.picture.url %>" />
+  <meta property="og:image"         content="https://migranempresa.com<%= @post.picture.url %>" />
 
 <% end %>
 
@@ -36,11 +36,11 @@
 
 <% if @company %>
 
-   <meta property="og:url"           content="http://migranemrpesa.com/empresa/<%= @company.name.gsub(' ','-') %>" />
+   <meta property="og:url"           content="https://migranemrpesa.com/empresa/<%= @company.name.gsub(' ','-') %>" />
   <meta property="og:type"          content="<%= @company.name %>" />
   <meta property="og:title"         content="<%= @company.name %>" />
   <meta property="og:description"   content="<%= @company.descripcion %>" />
-  <meta property="og:image"         content="http://migranempresa.com<%= @company.logo.url %>" />
+  <meta property="og:image"         content="https://migranempresa.com<%= @company.logo.url %>" />
 
 <% end %>
 
@@ -90,7 +90,7 @@
         <div class="header-upper">
           <div class="auto-container">
         <div class="logo-outer">
-                    <div class="logo"><a href="/"><img src="/landing/images/logo_transparent.png" alt="" style="width: 226px;height:80px;" /></a></div>
+                    <div class="logo"><a href="/"><img src="https://migranempresa.s3.us-east-2.amazonaws.com/landing/images/logo_transparent.png" alt="" style="width: 226px;height:80px;" /></a></div>
                 </div>
       </div>
         </div>
@@ -209,7 +209,7 @@
             <div class="auto-container clearfix">
                 <!--Logo-->
                 <div class="logo pull-left">
-                    <a href="/" title=""><img src="/landing/images/logo-small_new.png" alt="" /></a>
+                    <a href="/" title=""><img src="https://migranempresa.s3.us-east-2.amazonaws.com/landing/images/logo-small_new.png" alt="" /></a>
                 </div>
                 
                 <!--Right Col-->
@@ -299,7 +299,7 @@
         <!-- Hidden Bar Wrapper -->
         <div class="hidden-bar-wrapper">
             <div class="logo">
-              <a href="/"><img src="/landing/images/mobile-logo_transparent.png" alt="" /></a>
+              <a href="/"><img src="https://migranempresa.s3.us-east-2.amazonaws.com/landing/images/mobile-logo_transparent.png" alt="" /></a>
             </div>
             <!-- .Side-menu -->
             <div class="side-menu">
