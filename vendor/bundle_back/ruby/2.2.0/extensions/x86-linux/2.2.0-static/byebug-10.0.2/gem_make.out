@@ -1,0 +1,15 @@
+/opt/ruby/ruby-225/bin/ruby225 -r ./siteconf20181129-29188-ejovc6.rb extconf.rb
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+compiling byebug.c
+compiling locker.c
+compiling threads.c
+compiling breakpoint.c
+compiling context.c
+linking shared-object byebug/byebug.so
+
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 byebug.so ./.gem.20181129-29188-nxd4r8/byebug

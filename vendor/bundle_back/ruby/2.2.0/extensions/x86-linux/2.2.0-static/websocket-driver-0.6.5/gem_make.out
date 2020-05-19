@@ -1,0 +1,11 @@
+/opt/ruby/ruby-225/bin/ruby225 -r ./siteconf20181129-29188-1ca01q4.rb extconf.rb
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+compiling websocket_mask.c
+linking shared-object websocket_mask.so
+
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 websocket_mask.so ./.gem.20181129-29188-9wcplc

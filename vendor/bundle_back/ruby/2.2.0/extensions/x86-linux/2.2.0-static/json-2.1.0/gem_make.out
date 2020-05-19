@@ -1,0 +1,9 @@
+/opt/ruby/ruby-225/bin/ruby225 -r ./siteconf20181129-29188-1n5t5ve.rb extconf.rb
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+make: Nothing to be done for `all'.
+
+make "DESTDIR=" install

@@ -1,0 +1,59 @@
+
+    <!--Page Title-->
+    <section class="page-title">
+    	<div class="auto-container">
+        	<div class="clearfix">
+            	<div class="pull-left">
+                	<h2>Todo lo que debe de saber un emprendedor está aquí. Noticias, consejos, tips y mucho más.</h2>
+                </div>
+                <div class="pull-right">
+                	<ul class="page-title-breadcrumb">
+                    	<li><a href="/"><span class="fa fa-home"></span>Home</a></li>
+                        <li>Columnistas</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--End Page Title-->
+    
+    <!--Sidebar Page Container-->
+    <div class="sidebar-page-container">
+    	<div class="auto-container">
+        	<div class="row clearfix">
+            	
+                <div class="row clearfix">
+                      <% Columnist.all.reverse.each do |post| %>   
+                	<!--News Block One-->
+                    <div class="news-block-one col-md-3 col-sm-3 col-xs-12">
+                        <div class="inner-box">
+                            <div class="image">
+                              <a href="/columnista_detalle?id=<%= post.colm_id %>"> <img src="<%= post.picture.url %>" alt="" /></a>
+                            </div>
+                            <div class="lower-box">
+                                <h3><a href="/columnista_detalle?id=<%= post.colm_id %>"><%= post.full_name %></a></h3>
+
+                                <div class="text"><%= post.semblanza.truncate_words(20) %></div>
+                                <!-- <a href="blog-single.html" class="read-more">Read More <span class="arrow ion-ios-arrow-thin-right"></span></a> -->
+                            </div>
+                        </div>
+                    </div>
+                    <!--End News Block-->
+               
+                    <!--End News Block-->
+                         <% end %>
+                </div>
+                    
+             
+      
+            </div>
+            
+        </div>
+    </div>
+
+
+    <!--End Sidebar Page Container-->
+    
+    <!--Instagram Gallery-->
+
+    

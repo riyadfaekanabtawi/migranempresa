@@ -1,0 +1,26 @@
+     <% if session[:user_id] %>
+     <%= render 'layouts/header' %>
+   <div class="content-wrapper">
+<section class="content">
+    
+<div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">Editar Columnista</h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+           
+	<%= render 'form', staff: @columnist %>
+
+
+          </div>
+    </section>
+
+        </div>
+<% else %><br><br><br><br>
+<div align="center">
+
+<h2>Cerraste tu sesión, vuelve a logearte</h2>
+</div>
+<br><br><br><br>
+<% end %>

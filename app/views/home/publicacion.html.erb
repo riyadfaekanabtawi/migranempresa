@@ -1,0 +1,122 @@
+
+    <!--Page Title-->
+
+    <% @post = Post.find_by_company_name(params[:id].gsub('-',' ')) %>
+
+    <% if @post == nil %>
+
+         <% @search = params[:id].gsub('-',' ') %>
+       <% @post = Post.where("company_name like ?", "%#{@search}%")[0] %>
+    
+    <% end %>
+
+    <section class="page-title">
+      <div class="auto-container">
+          <div class="clearfix">
+              <div class="pull-left">
+                  <h2>  <%= @post.company_name %></h2>
+                </div>
+                <div class="pull-right">
+                  <ul class="page-title-breadcrumb">
+                      <li><a href="/"><span class="fa fa-home"></span>Home</a></li>
+            
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--End Page Title-->
+    
+    <!--Shop Single-->
+    <div class="shop-page">
+        <div class="auto-container">
+            <!--Basic Details-->
+            <div class="basic-details">
+                <div class="row clearfix">
+                
+                    <div class="image-column col-md-6 col-sm-12 col-xs-12">
+                   
+                    <img src=" <%= @post.picture.url %>" alt=""><br><br>
+
+
+    
+
+  <!-- Your share button code -->
+
+
+
+
+
+                    <ul class="social-icon-one alternate">
+                                        <li class="share">Comparte:</li>
+                                        <li><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://migranempresa.com%2Fpublicacion/<%= @post.company_name.gsub(' ','-') %>%2F&amp;src=sdkpreparse"><span class="fa fa-facebook"></span></a></li>
+
+                                        <li><div class="fb-like" data-href="https://migranempresa.com/publicacion/<%= @post.company_name.gsub(' ','-') %>" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div></li>
+                                    </ul>
+                    <div class="author-box">
+                                <div class="author-comment">
+                                    <div class="inner-box">
+                                        <div class="image"><img src="<%= Columnist.find(@post.columnist_id).picture.url %>" alt=""></div>
+                                        <h4><%= Columnist.find(@post.columnist_id).full_name %></h4>
+                                        <div class="text"><%= Columnist.find(@post.columnist_id).semblanza %></div>
+                                        <ul class="social-icon-two">
+                                            <% if Columnist.find(@post.columnist_id).facebook.blank? || Columnist.find(@post.columnist_id).facebook == nil %>
+
+                                            <% else %>
+                                            <li><a href="<%= Columnist.find(@post.columnist_id).facebook %>"><span class="fa fa-facebook-square"></span></a></li>
+                                             <% end %>
+                                            <% if Columnist.find(@post.columnist_id).twitter.blank? || Columnist.find(@post.columnist_id).twitter == nil  %>
+
+                                            <% else %>
+                                            <li><a href="<%= Columnist.find(@post.columnist_id).twitter %>"><span class="fa fa-twitter-square"></span></a></li>
+                                            <% end %>
+
+                                             <% if Columnist.find(@post.columnist_id).linkedin.blank? || Columnist.find(@post.columnist_id).linkedin == nil  %>
+                                             <% else %>
+                                            <li><a href="<%= Columnist.find(@post.columnist_id).linkedin %>"><span class="fa fa-linkedin-square"></span></a></li>
+                                            <% end %>
+                                            <% if Columnist.find(@post.columnist_id).instagram.blank? || Columnist.find(@post.columnist_id).instagram == nil  %>
+
+                                            <% else %>
+
+                                                   <li><a href="<%= Columnist.find(@post.columnist_id).instagram %>"><span class="fa fa-instagram-square"></span></a></li>
+
+                                            <% end %>
+                                     
+                              
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+
+          
+                    </div>
+                    
+                    <!--Info Column-->
+                    <div class="info-column col-md-6 col-sm-12 col-xs-12">
+                      <div class="inner-column">
+                            <div class="details-header">
+                                <h4><%= @post.company_name %></h4>
+                       
+                             
+                            </div>
+                            <div class="text" style="text-align: justify;">
+
+              
+                               
+                                <%= raw @post.company_description.gsub(". ", ".<br><br>") %>
+                            </div>
+                         
+                           
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <!--Basic Details-->
+            
+          
+ 
+        </div>
+    </div>

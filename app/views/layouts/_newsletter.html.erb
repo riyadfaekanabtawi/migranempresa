@@ -1,0 +1,20 @@
+ <!--Subscribe Style One-->
+    <section class="subscribe-style-one">
+    	<div class="auto-container">
+        	<div class="row clearfix">
+                <div class="col-md-5 col-sm-12 col-xs-12">
+                    <h2>Suscríbete a nuestro Newsletter</h2>
+                    <div class="text">Inscríbete y recibirás consejos, tips y las últimas noticias de nuestro blog.</div>
+                </div>
+                <div class="col-md-7 col-sm-12 col-xs-12">
+                    <%= form_tag('/sendNewsletter', multipart: true, authenticity_token: true)  do |form| %>
+                        <div class="form-group clearfix">
+                            <input type="email" name="email" value="" placeholder="Ingresa tu correo electrónico" required>
+                            <button type="submit" class="theme-btn btn-style-four">Subscribirme</button>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </section>
+	<!--End Subscribe Style One-->

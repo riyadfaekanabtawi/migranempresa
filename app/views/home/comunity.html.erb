@@ -1,0 +1,66 @@
+
+    <!--Page Title-->
+    <section class="page-title">
+    	<div class="auto-container">
+        	<div class="clearfix">
+            	<div class="pull-left">
+                	<h2>Comunidad</h2>
+                </div>
+                <div class="pull-right">
+                	<ul class="page-title-breadcrumb">
+                    	<li><a href="/+"><span class="fa fa-home"></span>Home</a></li>
+                        <li><a href="#">Comunidad</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--End Page Title-->
+    
+    <!--Shop Section-->
+    <section class="shop-section">
+    	<div class="auto-container">
+        	
+            <!--Sort By-->
+ 
+            <!--Shop Items-->
+            <div class="shop-items">
+                <div class="row clearfix">
+                    <% Company.all.each do |post| %>
+                    <!--Shop Item-->
+                    <div class="shop-item col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                        <div class="inner-box">
+                        	
+                            <div class="image-box">
+                                <a href="/empresa/<%= post.name.gsub(' ','-') %>" target="_blank"><img src="<%= post.logo.url %>" alt="" style="width:260px; height:260px;" /></a>
+                            </div>
+                            <div class="lower-box">
+                            	<div class="upper-box">
+                                	<h4><a href="/empresa/<%= post.name.gsub(' ','-') %>" target="_blank"><%= post.giro.truncate_words(3) %></a></h4>
+                                </div>
+                                <div class="lower-content">
+                                	<div class="price"><a href="<%= post.website %>" target="_blank" style="font-size:12px"><%= post.website %></a></div>
+                                </div>
+                                 <div class="lower-content">
+                                    <div class="price"><%= post.telefono %></div>
+                  
+                                </div>
+                                  <div class="lower-content">
+                                    <div class="price" style="font-size: 12px;"><%= post.descripcion.truncate_words(4) %></div>
+                  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                        <% end %>
+                  
+                    
+                </div>
+            
+                
+            </div>
+            
+        </div>
+    </section>
+    <!--End Shop Section-->

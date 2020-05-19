@@ -1,0 +1,105 @@
+  <!--Main Footer-->
+    <footer class="main-footer">
+      <div class="widgets-section">
+          <div class="auto-container">
+              <div class="row clearfix">
+                  
+                    <!--Widget Column-->
+         
+                   <div class="widget-column col-md-6 col-sm-6 col-xs-12">
+                      <div class="footer-widget newsletter-widget">
+                          <h2>Términos y Condiciones</h2>
+                            <div class="newsletter-form">
+                            <a href="/privacy" style="color: #fff;    font-size: 16px;">Aviso de Privacidad</a><br><br>
+                            <a href="/terms" style="color: #fff;    font-size: 16px;">Términos y Condiciones</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    <!--Widget Column / Newsletter Widget-->
+                    <div class="widget-column col-md-6 col-sm-6 col-xs-12">
+                      <div class="footer-widget newsletter-widget">
+                          <h2 >Newsletter</h2>
+                            <div class="newsletter-form">
+                        <%= form_tag('/sendNewsletter', multipart: true, authenticity_token: true)  do |form| %>
+                                    <div class="form-group">
+                                        <input type="text" name="nombre" value="" placeholder="Nombre" required="">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="email" name="email" value="" placeholder="Email" required="">
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit"  class="theme-btn btn-style-one"  style="color:#fff;">Subscribirme</button>
+                                    </div>
+                              <%end%>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <!--Footer Bottom-->
+        <div class="footer-bottom">
+          <div class="auto-container">
+              <div class="logo">
+                    <a href="/"><img src="/landing/images/logo_transparent.png" alt="" /></a>
+                </div>    
+            </div>
+            <!--Copyright Section-->
+            <div class="copyright-section">
+                <div class="auto-container">
+                    <div class="row clearfix">
+                        <div class="col-md-6 col-sm-12 col-xs-12">
+                            <ul class="footer-nav">
+                                <li><a  style="color:#28292d;" href="/">Home</a></li>
+                                <li><a  style="color:#28292d;" href="/about">Mi Gran Empresa</a></li>
+                                <li><a style="color:#28292d;" href="/contacto">Contacto</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6 col-sm-12 col-xs-12">
+                            <div class="copyright" style="color:#28292d;">&copy; Copyright Mi Gran Empresa. All rights reserved.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--End Main Footer-->
+    
+</div>
+<!--End pagewrapper-->
+
+<!--Scroll to top-->
+<div class="scroll-to-top scroll-to-target" data-target="html"><span class="icon fa fa-angle-double-up"></span></div>
+
+
+
+<!--[if lt IE 9]><script src="/landing/js/html5.js"></script><![endif]-->
+<!--[if lt IE 9]><script src="/landing/js/respond.js"></script><![endif]-->
+<script src="/landing/js/jquery.js"></script> 
+<!--Revolution Slider-->
+<script src="/landing/plugins/revolution/js/jquery.themepunch.revolution.min.js"></script>
+<script src="/landing/plugins/revolution/js/jquery.themepunch.tools.min.js"></script>
+<script src="/landing/plugins/revolution/js/extensions/revolution.extension.actions.min.js"></script>
+<script src="/landing/plugins/revolution/js/extensions/revolution.extension.carousel.min.js"></script>
+<script src="/landing/plugins/revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
+<script src="/landing/plugins/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+<script src="/landing/plugins/revolution/js/extensions/revolution.extension.migration.min.js"></script>
+<script src="/landing/plugins/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+<script src="/landing/plugins/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
+<script src="/landing/plugins/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+<script src="/landing/plugins/revolution/js/extensions/revolution.extension.video.min.js"></script>
+<script src="/landing/js/main-slider-script.js"></script>
+<!--End Revolution Slider-->
+<script src="/landing/js/bootstrap.min.js"></script>
+<script src="/landing/js/owl.js"></script>
+<script src="/landing/js/appear.js"></script>
+<script src="/landing/js/wow.js"></script>
+<script src="/landing/js/jquery.fancybox.js"></script>
+<script src="/landing/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="/landing/js/script.js"></script>
+<script src="/landing/js/color-settings.js"></script>
+</body>
+</html>

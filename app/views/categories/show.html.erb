@@ -1,0 +1,17 @@
+ <% if session[:user_id] %>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @category.name %>
+</p>
+
+<%= link_to 'Edit', edit_category_path(@category) %> |
+<%= link_to 'Back', categories_path %>
+<% else %><br><br><br><br>
+<div align="center">
+
+<h2>Cerraste tu sesión, vuelve a logearte</h2>
+</div>
+<br><br><br><br>
+<% end %>

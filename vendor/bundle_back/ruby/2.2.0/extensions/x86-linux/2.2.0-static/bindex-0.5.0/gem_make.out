@@ -1,0 +1,11 @@
+/opt/ruby/ruby-225/bin/ruby225 -r ./siteconf20181129-29188-j8x34w.rb extconf.rb
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+compiling cruby.c
+linking shared-object bindex/cruby.so
+
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 cruby.so ./.gem.20181129-29188-1i49ouc/bindex

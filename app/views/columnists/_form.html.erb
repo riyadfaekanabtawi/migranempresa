@@ -1,0 +1,114 @@
+  <%= form_with(model: @columnist, local: true) do |form| %>
+
+       <div class="box-body">
+
+<% if @columnist.errors.any? %>
+    <div id="error_explanation">
+        <div class="alert alert-danger alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <h4><i class="icon fa fa-ban"></i> Debes llenar los campos! faltaron:</h4>
+                
+   
+      <% @columnist.errors.full_messages.each do |message| %>
+
+
+               <p><%= message %></p>
+
+      <% end %>
+      </div>
+    </div>
+  <% end %>
+
+  
+
+               <div class="form-group">
+                  <label for="exampleInputEmail1">Nombre Completo *</label>
+                 <input class="form-control"  name="columnist[full_name]" value="<%= @columnist.full_name %>" placeholder="Nombre Completo *" size="30" type="text" required>
+                </div>
+           
+        
+                    <div class="form-group">
+                  <label for="exampleInputEmail1">Facebook</label>
+                 <input class="form-control"  name="columnist[facebook]" value="<%= @columnist.facebook %>" placeholder="Facebook Empresa" size="30" type="text">
+                </div>
+           
+
+
+
+                    <div class="form-group">
+                  <label for="exampleInputEmail1">Twitter</label>
+                 <input class="form-control"  name="columnist[twitter]" value="<%= @columnist.twitter %>" placeholder="Twitter Empresa" size="30" type="text" >
+                </div>
+           
+
+
+
+                    <div class="form-group">
+                  <label for="exampleInputEmail1">Instagram</label>
+                 <input class="form-control"  name="columnist[instagram]" value="<%= @columnist.instagram %>" placeholder="Instagram Empresa" size="30" type="text">
+                </div>
+           
+                   <div class="form-group">
+                  <label for="exampleInputEmail1">Linkedin</label>
+                 <input class="form-control"  name="columnist[linkedin]" value="<%= @columnist.linkedin %>" placeholder="Linkedin Empresa" size="30" type="text">
+                </div>
+
+                    <div class="form-group">
+                  <label for="exampleInputEmail1">Semblanza * Palabras: <span id="display_count">0</span> </label>
+                  <textarea id="word_count" rows="4" cols="50" class="form-control"  name="columnist[semblanza]" value="<%= @columnist.semblanza %>">
+                    <%= @columnist.semblanza %>
+                    </textarea>
+                <!--  <input class="form-control"  name="columnist[semblanza]" value="<%= @columnist.semblanza %>" placeholder="Semblanza *" size="30" type="text" required> -->
+                </div>
+           
+         
+         <div class="form-group">
+                  <label for="exampleInputEmail1">Foto de Columnista *</label>
+                 <%= form.file_field :picture %>
+
+                </div>
+
+
+      
+
+
+    <div class="form-group">
+        <button type="submit" name="submit" class="btn btn-primary">Cargar Columnista</button>
+          
+    </div>
+
+
+
+</div>
+
+<script type="text/javascript">
+
+  $( window ).on( "load", function() { 
+
+      $("#word_count").on('keyup', function() {
+        var words = this.value.match(/\S+/g).length;
+     $('#display_count').text(words);
+    });
+
+    var words = document.getElementById('word_count').value.match(/\S+/g).length;
+     $('#display_count').text(words);
+
+   });
+
+
+  $(document).ready(function() {
+        $("#word_count").on('keyup', function() {
+        var words = this.value.match(/\S+/g).length;
+     $('#display_count').text(words);
+    });
+
+    var words = document.getElementById('word_count').value.match(/\S+/g).length;
+     $('#display_count').text(words);
+
+ }); 
+</script>
+
+<% end %>
+
+
+

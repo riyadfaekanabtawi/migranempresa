@@ -1,0 +1,165 @@
+     <% if session[:user_id] %>
+     <%= render 'layouts/header' %>
+   <div class="content-wrapper">
+<section class="content">
+    
+<div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">Editar Post</h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+           
+
+   <% @post = Post.where("post_id =?",params[:post_id])[0] %>
+  <%= form_with(model: @post, local: true) do |form| %>
+
+       <div class="box-body">
+
+<% if @post.errors.any? %>
+    <div id="error_explanation">
+        <div class="alert alert-danger alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <h4><i class="icon fa fa-ban"></i> Debes llenar los campos! faltaron:</h4>
+                
+   
+      <% @post.errors.full_messages.each do |message| %>
+
+
+               <p><%= message %></p>
+
+      <% end %>
+      </div>
+    </div>
+  <% end %>
+      <div class="form-group">
+                  <label for="exampleInputEmail1">Foto de Publicación *</label>
+                 <%= form.file_field :picture %>
+
+                </div>
+
+               <div class="form-group">
+                <label for="exampleInputEmail1">Empresa *</label>      
+                    <select name="post[company_id]" class="form-control">
+                      <% Company.all.each do |name| %>
+                      <% if name.id == @post.company_id %>
+                        <option value="<%= name.id %>" selected><%= name.name %></option>
+                      <% else %>
+                        <option value="<%= name.id %>"><%= name.name %></option>
+                      <% end %>
+                      
+                      <% end %>
+                    </select>
+    
+
+                </div>
+
+
+                <div class="form-group">
+                <label for="exampleInputEmail1">Columnista *</label>      
+                    <select name="post[columnist_id]" class="form-control">
+                      <% Columnist.all.each do |c| %>
+                  
+
+                             <% if c.id == @post.columnist_id %>
+                        <option value="<%= c.id %>" selected><%= c.full_name %></option>
+                      <% else %>
+                        <option value="<%= c.id %>"><%= c.full_name %></option>
+                      <% end %>
+
+
+                      <% end %>
+                    </select>
+    
+
+                </div>
+
+
+
+               <div class="form-group">
+                  <label for="exampleInputEmail1">Titulo *</label>
+                 <input class="form-control"  name="post[company_name]" value="<%= @post.company_name %>" placeholder="Titulo *" size="30" type="text" required>
+                </div>
+           
+        
+                    <div class="form-group">
+                  <label for="exampleInputEmail1">Contenido * (ingresar todo el texto junto, el cual se separará automaticamente por puntos y apartes en párrafos)</label>
+                 <input class="form-control"  name="post[company_description]"  value="<%= @post.company_description %>" placeholder="Contenido *" size="30" type="text" required>
+                </div>
+           
+     
+
+               <div class="form-group">
+                <label for="exampleInputEmail1">Categoría *</label>      
+                    <select name="post[category_id]" class="form-control">
+                      <% Category.all.each do |doctor| %>
+                     
+
+                        <% if doctor.id == @post.category_id %>
+   <option value="<%= doctor.id %>" selected><%= doctor.name %></option>
+                      <% else %>
+   <option value="<%= doctor.id %>"><%= doctor.name %></option>
+                      <% end %>
+                      <% end %>
+                    </select>
+    
+
+                </div>
+
+
+   <div class="form-group">
+                <label for="exampleInputEmail1">Subcategoría *</label>      
+                    <select name="post[subcategory_id]" class="form-control">
+                      <% Subcategory.all.each do |doctor| %>
+
+                        <% if doctor.id == @post.subcategory_id %>
+            <option value="<%= doctor.id %>" selected><%= doctor.name %></option>
+                      <% else %>
+         <option value="<%= doctor.id %>"><%= doctor.name %></option>
+                      <% end %>
+
+
+               
+                      <% end %>
+                    </select>
+    
+
+                </div>
+
+
+
+    <div class="form-group">
+        <button type="submit" name="submit" class="btn btn-primary">Cargar Post</button>
+          
+    </div>
+
+
+
+</div>
+<% end %>
+
+
+
+
+
+ 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js" type="text/javascript"></script>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js" type="text/javascript"></script>
+
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="Stylesheet" type="text/css">
+
+
+
+
+
+          </div>
+    </section>
+
+        </div>
+<% else %><br><br><br><br>
+<div align="center">
+
+<h2>Cerraste tu sesión, vuelve a logearte</h2>
+</div>
+<br><br><br><br>
+<% end %>

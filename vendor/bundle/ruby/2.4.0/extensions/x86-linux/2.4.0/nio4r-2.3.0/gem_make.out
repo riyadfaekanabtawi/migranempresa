@@ -1,0 +1,113 @@
+current directory: /home/mi-gran-empresa/mi_gran_empresa/vendor/bundle/ruby/2.4.0/gems/nio4r-2.3.0/ext/nio4r
+/usr/local/rvm/rubies/ruby-2.4.0/bin/ruby -r ./siteconf20190108-2908-bqrke1.rb extconf.rb
+checking for unistd.h... yes
+checking for sys/select.h... yes
+checking for port_event_t in poll.h... no
+checking for sys/epoll.h... yes
+checking for sys/event.h... no
+checking for port_event_t in port.h... no
+checking for sys/resource.h... yes
+creating Makefile
+
+current directory: /home/mi-gran-empresa/mi_gran_empresa/vendor/bundle/ruby/2.4.0/gems/nio4r-2.3.0/ext/nio4r
+make "DESTDIR=" clean
+
+current directory: /home/mi-gran-empresa/mi_gran_empresa/vendor/bundle/ruby/2.4.0/gems/nio4r-2.3.0/ext/nio4r
+make "DESTDIR="
+compiling bytebuffer.c
+compiling monitor.c
+compiling nio4r_ext.c
+In file included from nio4r_ext.c:7:0:
+../libev/ev.c:488:48: warning: "/*" within comment [-Wcomment]
+In file included from nio4r_ext.c:7:0:
+../libev/ev.c: In function 'ecb_binary32_to_binary16':
+../libev/ev.c:1274:13: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+In file included from nio4r_ext.c:7:0:
+../libev/ev.c: At top level:
+../libev/ev.c:1836:31: warning: 'ev_default_loop_ptr' initialized and declared 'extern' [enabled by default]
+../libev/ev.c: In function 'array_nextsize':
+../libev/ev.c:1945:19: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+In file included from ../libev/ev.c:2710:0,
+                 from nio4r_ext.c:7:
+../libev/ev_poll.c: In function 'poll_poll':
+../libev/ev_poll.c:111:9: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+In file included from nio4r_ext.c:7:0:
+../libev/ev.c: In function 'verify_watcher':
+../libev/ev.c:3123:3: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+../libev/ev.c:3126:5: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+../libev/ev.c: In function 'verify_heap':
+../libev/ev.c:3137:7: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+../libev/ev.c:3138:7: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+../libev/ev.c:3139:7: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+../libev/ev.c: In function 'array_verify':
+../libev/ev.c:3151:7: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+../libev/ev.c: In function 'ev_verify':
+../libev/ev.c:3169:5: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+../libev/ev.c:3182:15: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+../libev/ev.c:3186:11: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+../libev/ev.c:3187:11: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+../libev/ev.c: In function 'timers_reify':
+../libev/ev.c:3371:15: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+../libev/ev.c: In function 'periodics_reify':
+../libev/ev.c:3434:15: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+../libev/ev.c: In function 'ev_backend_poll':
+../libev/ev.c:3580:1: warning: no return statement in function returning non-void [-Wreturn-type]
+../libev/ev.c: In function 'ev_run':
+../libev/ev.c:3594:3: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+../libev/ev.c:3750:9: warning: passing argument 1 of 'rb_thread_call_without_gvl' from incompatible pointer type [enabled by default]
+/usr/local/rvm/rubies/ruby-2.4.0/include/ruby-2.4.0/ruby/thread.h:28:7: note: expected 'void * (*)(void *)' but argument is of type 'VALUE (*)(void *)'
+../libev/ev.c:3762:13: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+../libev/ev.c: In function 'ev_io_start':
+../libev/ev.c:3937:3: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+../libev/ev.c:3938:3: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+../libev/ev.c:3947:3: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+../libev/ev.c: In function 'ev_io_stop':
+../libev/ev.c:3963:3: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+../libev/ev.c: In function 'ev_timer_start':
+../libev/ev.c:3984:3: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+../libev/ev.c: In function 'ev_timer_stop':
+../libev/ev.c:4013:5: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+../libev/ev.c: In function 'ev_periodic_start':
+../libev/ev.c:4077:7: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+../libev/ev.c: In function 'ev_periodic_stop':
+../libev/ev.c:4110:5: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+../libev/ev.c: In function 'ev_signal_start':
+../libev/ev.c:4149:3: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+../libev/ev.c:4152:3: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+../libev/ev.c: In function 'ev_child_start':
+../libev/ev.c:4271:3: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+../libev/ev.c: In function 'infy_add':
+../libev/ev.c:4344:34: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+../libev/ev.c:4347:34: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+../libev/ev.c: In function 'ev_embed_start':
+../libev/ev.c:4856:5: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+../libev/ev.c: At top level:
+../libev/ev.c:5206:27: warning: "/*" within comment [-Wcomment]
+../libev/ev.c:5207:27: warning: "/*" within comment [-Wcomment]
+nio4r_ext.c: In function 'Init_nio4r_ext':
+nio4r_ext.c:15:5: warning: passing argument 1 of 'ev_set_allocator' from incompatible pointer type [enabled by default]
+../libev/ev.c:1738:1: note: expected 'void * (*)(void *, long int)' but argument is of type 'void * (*)(void *, size_t)'
+nio4r_ext.c: In function 'evpipe_write':
+../libev/ev.c:2473:17: warning: ignoring return value of 'write', declared with attribute warn_unused_result [-Wunused-result]
+../libev/ev.c:2485:17: warning: ignoring return value of 'write', declared with attribute warn_unused_result [-Wunused-result]
+nio4r_ext.c: In function 'pipecb':
+../libev/ev.c:2506:16: warning: ignoring return value of 'read', declared with attribute warn_unused_result [-Wunused-result]
+../libev/ev.c:2520:16: warning: ignoring return value of 'read', declared with attribute warn_unused_result [-Wunused-result]
+nio4r_ext.c: At top level:
+cc1: warning: unrecognized command line option "-Wno-self-assign" [enabled by default]
+cc1: warning: unrecognized command line option "-Wno-constant-logical-operand" [enabled by default]
+cc1: warning: unrecognized command line option "-Wno-parentheses-equality" [enabled by default]
+cc1: warning: unrecognized command line option "-Wno-tautological-compare" [enabled by default]
+compiling selector.c
+selector.c: In function 'NIO_Selector_wakeup':
+selector.c:484:10: warning: ignoring return value of 'write', declared with attribute warn_unused_result [-Wunused-result]
+selector.c: At top level:
+cc1: warning: unrecognized command line option "-Wno-self-assign" [enabled by default]
+cc1: warning: unrecognized command line option "-Wno-constant-logical-operand" [enabled by default]
+cc1: warning: unrecognized command line option "-Wno-parentheses-equality" [enabled by default]
+cc1: warning: unrecognized command line option "-Wno-tautological-compare" [enabled by default]
+linking shared-object nio4r_ext.so
+
+current directory: /home/mi-gran-empresa/mi_gran_empresa/vendor/bundle/ruby/2.4.0/gems/nio4r-2.3.0/ext/nio4r
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 nio4r_ext.so ./.gem.20190108-2908-bdlb3u

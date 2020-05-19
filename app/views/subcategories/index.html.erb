@@ -1,0 +1,78 @@
+ <% if session[:user_id] %>
+  <% @current_user ||= User.find(session[:user_id]) if session[:user_id] %>
+
+   <%= render 'layouts/header' %>
+   <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+
+
+    <!-- Main content -->
+    <section class="content">
+<div class="row">
+  <div class="col-md-12">
+      <div class="boxed">
+                <!-- Title Bart Start -->
+
+          
+
+
+<h2>Listado de Subcategorías <a href="/subcategories/new" style="font-size: 16px;">Cargar Subcategoría</a></h2>
+
+    <div class="inner no-radius">
+
+
+  <table class="table table-striped table-bordered table-hover table-full-width" id="sample_1">
+                  <thead>
+                    <tr>
+                       <th>ID</th>
+                          <th>Nombre</th>
+ 
+                 
+
+                    
+                            <th colspan="3"></th>
+                             <th colspan="3"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+  
+ <% @subcategories.each do |cat| %>
+                    <tr>
+                <td><%= cat.subcat_id %></td>                                
+             <td><%= cat.name %></td>
+
+        <td><a href="/editsubcategoria?subcat_id=<%= cat.subcat_id %>">Editar</a></td>
+        <td><a href="/eliminarsubcategoria?subcat_id=<%= cat.subcat_id %>">Eliminar</a></td>
+                    </tr>
+
+                  
+ <% end %>
+
+
+
+                  </tbody>
+                </table>
+
+
+
+        </div>
+
+
+      </div>
+</div>
+</div>
+
+
+
+
+
+</section>
+</div>
+
+<% else %><br><br><br><br>
+<div align="center">
+
+<h2>Cerraste tu sesión, vuelve a logearte</h2>
+</div>
+<br><br><br><br>
+<% end %>

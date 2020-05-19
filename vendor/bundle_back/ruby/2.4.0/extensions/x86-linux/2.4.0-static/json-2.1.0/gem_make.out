@@ -1,0 +1,13 @@
+current directory: /home/mi-gran-empresa/mi_gran_empresa/vendor/bundle/ruby/2.4.0/gems/json-2.1.0/ext/json
+/opt/ruby/241/bin/ruby241 -r ./siteconf20181229-19790-1opidlv.rb extconf.rb
+creating Makefile
+
+current directory: /home/mi-gran-empresa/mi_gran_empresa/vendor/bundle/ruby/2.4.0/gems/json-2.1.0/ext/json
+make "DESTDIR=" clean
+
+current directory: /home/mi-gran-empresa/mi_gran_empresa/vendor/bundle/ruby/2.4.0/gems/json-2.1.0/ext/json
+make "DESTDIR="
+make: Nothing to be done for `all'.
+
+current directory: /home/mi-gran-empresa/mi_gran_empresa/vendor/bundle/ruby/2.4.0/gems/json-2.1.0/ext/json
+make "DESTDIR=" install

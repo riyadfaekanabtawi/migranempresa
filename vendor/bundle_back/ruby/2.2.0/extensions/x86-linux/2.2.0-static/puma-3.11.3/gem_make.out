@@ -1,0 +1,22 @@
+/opt/ruby/ruby-225/bin/ruby225 -r ./siteconf20181129-29188-13hsymp.rb extconf.rb
+checking for BIO_read() in -lcrypto... yes
+checking for SSL_CTX_new() in -lssl... yes
+checking for openssl/bio.h... yes
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+compiling mini_ssl.c
+mini_ssl.c: In function ‘engine_init_server’:
+mini_ssl.c:153: warning: ISO C90 forbids mixed declarations and code
+mini_ssl.c:158: warning: ISO C90 forbids mixed declarations and code
+mini_ssl.c:180: warning: ISO C90 forbids mixed declarations and code
+mini_ssl.c:184: warning: ISO C90 forbids mixed declarations and code
+compiling http11_parser.c
+compiling io_buffer.c
+compiling puma_http11.c
+linking shared-object puma/puma_http11.so
+
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 puma_http11.so ./.gem.20181129-29188-1aeu54r/puma

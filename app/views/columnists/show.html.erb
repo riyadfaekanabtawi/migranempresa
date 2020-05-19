@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Full name:</strong>
+  <%= @columnist.full_name %>
+</p>
+
+<p>
+  <strong>Socials:</strong>
+  <%= @columnist.socials %>
+</p>
+
+<p>
+  <strong>Semblanza:</strong>
+  <%= @columnist.semblanza %>
+</p>
+
+<%= link_to 'Edit', edit_columnist_path(@columnist) %> |
+<%= link_to 'Back', columnists_path %>

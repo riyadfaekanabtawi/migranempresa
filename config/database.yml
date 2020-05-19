@@ -1,0 +1,29 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: mi_gran_empresa_production
+  pool: 5
+  username: mi_gran_empresa
+  password: 121788gloriA
+  timeout: 5000
+  host: localhost
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: mi_gran_empresa_test
+  pool: 5
+  username: mi_gran_empresa
+  password: 121788gloriA
+  timeout: 5000
+  host: localhost
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: mi_gran_empresa_production
+  pool: 5
+  username: mi_gran_empresa
+  password: 121788gloriA
+  timeout: 5000
+  host: migranempresa_db

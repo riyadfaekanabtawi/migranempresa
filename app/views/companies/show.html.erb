@@ -1,0 +1,78 @@
+   
+    <!--Page Title-->
+    <section class="page-title">
+      <div class="auto-container">
+          <div class="clearfix">
+              <div class="pull-left">
+                  <h2>  <%= @company.name %></h2>
+                </div>
+                <div class="pull-right">
+                  <ul class="page-title-breadcrumb">
+                      <li><a href="/"><span class="fa fa-home"></span>Home</a></li>
+            
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--End Page Title-->
+    
+    <!--Shop Single-->
+    <div class="shop-page">
+        <div class="auto-container">
+            <!--Basic Details-->
+            <div class="basic-details">
+                <div class="row clearfix">
+                
+                    <div class="image-column col-md-6 col-sm-12 col-xs-12">
+                   
+                    <img src=" <%= @company.logo.url %>" alt="">
+                    </div>
+                    
+                    <!--Info Column-->
+                    <div class="info-column col-md-6 col-sm-12 col-xs-12">
+                      <div class="inner-column">
+                            <div class="details-header">
+                                <h4><%= @company.name %></h4>
+                                <p><strong><%= @company.giro %></strong></p>
+                                <div class="item-price"><a href="<%= @company.website %>" target="_blank"><%= @company.website %></a></div>
+          
+                                <!--reviews-->
+                                <div class="reviews">
+                                        <% if @company.telefono %>
+                             <%= @company.telefono %>
+                             <% else %>
+                             Sin teléfono
+                             <% end %>
+                                </div>
+                            </div>
+                            <div class="text">
+                                <p>  <%= @company.descripcion.truncate_words(50) %></p>
+                            </div>
+                            <ul class="social-icon-three">
+                                <li class="share">Comparte:</li>
+
+                                 <li> <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fmigranempresa.com%2Fempresa/<%= post.name.gsub(' ','-') %>%2F&amp;src=sdkpreparse"><span class="fa fa-facebook"></span></a></a></li>
+
+  <li> <div class="btn-o" data-scribe="component:button" style="width: 61px;"><a href="https://twitter.com/intent/tweet?original_referer=http%3A%2F%2Fgranempresa.pridetech.co/empresa/<%= post.name.gsub(' ','-') %>&amp;ref_src=twsrc%5Etfw&amp;text=<%= @company.name %>&amp;tw_p=tweetbutton&amp;url=http%3A%2F%2Fmigranempresa.com/empresa/<%= post.name.gsub(' ','-') %>"><span class="fa fa-twitter"></span></a></div></li>
+
+
+                         
+                        
+                            
+                            </ul>
+                      
+                            <ul class="tags-box">
+                              <li> Dirección <%= @company.address %></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <!--Basic Details-->
+            
+          
+ 
+        </div>
+    </div>

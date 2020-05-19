@@ -1,0 +1,97 @@
+
+    
+    <!--Page Title-->
+    <section class="page-title">
+    	<div class="auto-container">
+        	<div class="clearfix">
+            	<div class="pull-left">
+                	<h2>Contacto</h2>
+                </div>
+                <div class="pull-right">
+                	<ul class="page-title-breadcrumb">
+                    	<li><a href="/"><span class="fa fa-home"></span>Home</a></li>
+                        <li>Contacto</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--End Page Title-->
+    
+	<!--Contact Section-->
+    <section class="contact-section">
+    	<!--Map Section-->
+
+            <!--End Map Section-->
+        <div class="auto-container">    
+            <div class="row clearfix">
+            	<!--Form Column-->
+            	<div class="form-column col-md-8 col-sm-12 col-xs-12">
+                	<div class="sec-title">
+                    	<h2>Contacto</h2>
+                    </div>
+                    <div class="text">Te responderemos las 24 horas del día.</div>
+                    <!--Contact Form-->
+                    <div class="contact-form">
+                        <form method="post" action="/sendContactRequest" id="contact-form">
+                    <%= form_tag('/sendContactRequest', multipart: true, authenticity_token: true)  do |form| %>
+                            <div class="clearfix">
+                                <div class="form-group">
+                                    <input type="text" name="nombre" value="" placeholder="Nombre ..." required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" name="email" value="" placeholder="Email ..." required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" name="telefono" value="" placeholder="Telefono ..." required>
+                                </div>
+                                <div class="form-group">
+                                    <textarea name="message" placeholder="En qué podemos ayudarte  ..."></textarea>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <button type="submit" class="theme-btn submit-btn">Enviar</button>
+                                </div>
+                                
+                            </div>
+                            
+                      <%end%>
+                    </div>
+                </div>
+                <!--Info Column-->
+                <div class="info-column col-md-4 col-sm-12 col-xs-12">
+                	<div class="inner-column">
+                    	<div class="sec-title">
+                        	<h2>Domicilio</h2>
+                        </div>
+                        
+                        <ul class="info-list">
+                        	<li>Dirección: Paseo de la Reforma #300, piso 9, Col. Juárez, Del Cuauhtémoc, C,  C.P 06600<li>
+                            <li>Teléfon: 5080 9271 </li>
+                            <li>Correo: contacto@migranempresa.com.mx</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+                <section class="map-section">
+            <!--Map Outer-->
+            <div class="map-outer">
+                <!--Map Canvas-->
+                <div class="map-canvas"
+                    data-zoom="18"
+                    data-lat="19.4274165",
+                    data-lng="-99.166578"
+                    data-type="roadmap"
+                    data-hue="#ffc400"
+                    data-title="Mi Gran Empresa"
+                    data-icon-path="/landing/images/icons/map-marker.png"
+                    data-content="Paseo de la Reforma 300, Juárez Ciudad de México, C.P. 06600 Mexico<br><a href='contacto@migranempresa.com.mx'>contacto@migranempresa.com.mx</a>">
+                </div>
+            </div>
+        </section>
+    </section>
+    <!--End Contact Section-->
+    <script src="http://maps.google.com/maps/api/js?key=AIzaSyBKS14AnP3HCIVlUpPKtGp7CbYuMtcXE2o"></script>
+<script src="/landing/js/map-script.js"></script>

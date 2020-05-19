@@ -1,0 +1,33 @@
+current directory: /home/mi-gran-empresa/mi_gran_empresa/vendor/bundle/ruby/2.4.0/gems/puma-3.11.3/ext/puma_http11
+/opt/ruby/241/bin/ruby241 -r ./siteconf20181229-5521-wz3im.rb extconf.rb
+checking for BIO_read() in -lcrypto... yes
+checking for SSL_CTX_new() in -lssl... yes
+checking for openssl/bio.h... yes
+creating Makefile
+
+current directory: /home/mi-gran-empresa/mi_gran_empresa/vendor/bundle/ruby/2.4.0/gems/puma-3.11.3/ext/puma_http11
+make "DESTDIR=" clean
+
+current directory: /home/mi-gran-empresa/mi_gran_empresa/vendor/bundle/ruby/2.4.0/gems/puma-3.11.3/ext/puma_http11
+make "DESTDIR="
+compiling http11_parser.c
+compiling io_buffer.c
+compiling mini_ssl.c
+mini_ssl.c: In function 'engine_init_server':
+mini_ssl.c:153:3: warning: ISO C90 forbids mixed declarations and code [-Wdeclaration-after-statement]
+mini_ssl.c:158:3: warning: ISO C90 forbids mixed declarations and code [-Wdeclaration-after-statement]
+mini_ssl.c:180:3: warning: ISO C90 forbids mixed declarations and code [-Wdeclaration-after-statement]
+mini_ssl.c:184:3: warning: ISO C90 forbids mixed declarations and code [-Wdeclaration-after-statement]
+mini_ssl.c: In function 'raise_error':
+mini_ssl.c:241:6: warning: function might be candidate for attribute 'noreturn' [-Wsuggest-attribute=noreturn]
+mini_ssl.c: At top level:
+cc1: warning: unrecognized command line option "-Wno-self-assign" [enabled by default]
+cc1: warning: unrecognized command line option "-Wno-constant-logical-operand" [enabled by default]
+cc1: warning: unrecognized command line option "-Wno-parentheses-equality" [enabled by default]
+cc1: warning: unrecognized command line option "-Wno-tautological-compare" [enabled by default]
+compiling puma_http11.c
+linking shared-object puma/puma_http11.so
+
+current directory: /home/mi-gran-empresa/mi_gran_empresa/vendor/bundle/ruby/2.4.0/gems/puma-3.11.3/ext/puma_http11
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 puma_http11.so ./.gem.20181229-5521-13t4wwf/puma

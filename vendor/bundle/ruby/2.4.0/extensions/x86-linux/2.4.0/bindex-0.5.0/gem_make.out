@@ -1,0 +1,15 @@
+current directory: /home/mi-gran-empresa/mi_gran_empresa/vendor/bundle/ruby/2.4.0/gems/bindex-0.5.0/ext/bindex
+/usr/local/rvm/rubies/ruby-2.4.0/bin/ruby -r ./siteconf20190108-2908-yaftjo.rb extconf.rb
+creating Makefile
+
+current directory: /home/mi-gran-empresa/mi_gran_empresa/vendor/bundle/ruby/2.4.0/gems/bindex-0.5.0/ext/bindex
+make "DESTDIR=" clean
+
+current directory: /home/mi-gran-empresa/mi_gran_empresa/vendor/bundle/ruby/2.4.0/gems/bindex-0.5.0/ext/bindex
+make "DESTDIR="
+compiling cruby.c
+linking shared-object bindex/cruby.so
+
+current directory: /home/mi-gran-empresa/mi_gran_empresa/vendor/bundle/ruby/2.4.0/gems/bindex-0.5.0/ext/bindex
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 cruby.so ./.gem.20190108-2908-x9c75p/bindex

@@ -1,0 +1,138 @@
+
+    <!--Page Title-->
+    <section class="page-title">
+    	<div class="shop-page">
+        <div class="auto-container">
+            <!--Basic Details-->
+            <div class="basic-details">
+                <div class="row clearfix">
+          <% @columnist = Columnist.find_by_full_name(params[:id].gsub('-',' ')) %>                
+                    <div class="image-column col-md-3 col-sm-12 col-xs-12">
+                        <div class="carousel-outer">
+        <a href="<%= @columnist.picture.url %>" class="lightbox-image" data-fancybox="images" data-caption="" title="<%= @columnist.full_name %>"><img src="<%= @columnist.picture.url %>" alt=""></a>
+                  
+                            
+                        </div>
+                    </div>
+                    
+                    <!--Info Column-->
+                    <div class="info-column col-md-6 col-sm-12 col-xs-12">
+                        <div class="inner-column">
+                            <div class="details-header">
+                                <h4><%= @columnist.full_name %></h4>
+                               
+             
+                              
+                            </div>
+                            <div class="text">
+                                <p><%= @columnist.semblanza %></p>
+                            </div>
+                            <ul class="social-icon-three">
+                                <li class="share">Redes Sociales:</li>
+                                <% if @columnist.facebook.blank? || @columnist.facebook == nil %>
+                               
+                                <% else %>
+                                 <li><a href="<%= @columnist.facebook %>" target="_blank"><span class="fa fa-facebook"></span></a></li>
+                                <% end %>
+                                 <% if  @columnist.twitter.blank? || @columnist.twitter == nil %>
+                              
+
+                                <% else %>
+
+                                  <li class="twitter"><a href="<%= @columnist.twitter %>" target="_blank"><span class="fa fa-twitter"></span></a></li>
+
+                                <% end %>
+                                <% if @columnist.linkedin.blank? || @columnist.linkedin == nil %>
+                              
+
+                                <% else %>
+                                  <li class="linkedin"><a href="<%= @columnist.linkedin %>" target="_blank"><span class="fa fa-linkedin-square"></span></a></li>
+
+                                <% end %>
+
+                                 <% if @columnist.instagram.blank? || @columnist.instagram == nil %>
+                               
+
+                                      <% else %>
+                                       <li class="instagram"><a href="<%= @columnist.instagram %>" target="_blank"><span class="fa fa-instagram"></span></a></li>
+
+                                <% end %>
+                              
+                            </ul>
+                  
+                    
+                        </div>
+                    </div>
+                    
+                </div>
+
+
+ <!--Related Posts-->
+                            <div class="related-posts">
+                                <div class="sec-title">
+                                    <h2>Publicaciones</h2>
+                                </div>
+                                <% @posts = Post.where("columnist_id =?",@columnist.id) %>
+
+                                <% if @posts.count >= 3 %>
+                                <div class="related-item-carousel owl-carousel owl-theme">
+                                                  <% @posts.reverse.each do |post| %> 
+                                    <!--News Block Two-->
+                                    <div class="news-block-two small-block">
+                                        <div class="inner-box">
+                                            <div class="image">
+                                                <a href="/publicacion/<%= post.company_name.gsub(' ','-') %>"><img src="<%= post.picture.url %>" alt="" /></a>
+                                                <div class="category"><a href="#"><%= Category.find(post.category_id).name %></a></div>
+                                            </div>
+                                            <div class="lower-box">
+                                                <h3><a href="/publicacion/<%= post.company_name.gsub(' ','-') %>"><%= post.company_name %></a></h3>
+                                                <ul class="post-meta">
+                                                    <li><span class="icon fa fa-clock-o"></span><%= post.created_at.strftime("%d/%m/%y") %></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <% end %> 
+                                </div>
+
+                                <% else %>
+                               
+<div class="row">
+     <% @posts.reverse.each do |post| %> 
+                                 <div class="col-md-4 col-sm-12 col-xs-12">
+
+                                    <div class="news-block-two small-block" style="width: 300px;">
+                                        <div class="inner-box">
+                                            <div class="image">
+                                                <a href="/publicacion/<%= post.company_name.gsub(' ','-') %>"><img src="<%= post.picture.url %>" alt="" /></a>
+                                                <div class="category"><a href="#"><%= Category.find(post.category_id).name %></a></div>
+                                            </div>
+                                            <div class="lower-box">
+                                                <h3><a href="/publicacion/<%= post.company_name.gsub(' ','-') %>"><%= post.company_name %></a></h3>
+                                                <ul class="post-meta">
+                                                    <li><span class="icon fa fa-clock-o"></span><%= post.created_at.strftime("%d/%m/%y") %></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                  
+                                    <% end %>
+                                 </div>
+                                   
+                                      
+                                <% end %>
+                            </div>
+
+                
+            <!--Basic Details-->
+   
+    
+            
+        </div>
+    </div>
+    </section>
+
+    
