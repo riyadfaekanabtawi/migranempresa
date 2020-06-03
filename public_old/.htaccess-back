@@ -1,6 +1,0 @@
-RackBaseURI /
-#RailsEnv development
-RailsEnv production
-PassengerAppRoot   /home/mi-gran-empresa/mi_gran_empresa
-#PassengerRuby  /usr/local/rvm/rubies/ruby-2.4.0/bin/ruby
-PassengerRuby /usr/local/rvm/gems/ruby-2.4.0/wrappers/ruby
