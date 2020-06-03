@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-    default :from => "direccion@migranempresa.com"
+    default :from => "contacto@migranempresa.com"
 
 
 
@@ -8,14 +8,14 @@ class UserMailer < ActionMailer::Base
 		@email = email
         @telefono = telefono
         @message = message
-		mail(:to => "riyad.faek@gmail.com", :subject => "Contacto desde sitio web")
+		mail(:to => "contacto@migranempresa.com", :subject => "Contacto desde sitio web")
 	end
 
 	def send_newsletter(nombre,email)
 		@nombre = nombre
 		@email = email
     
-		mail(:to => "riyad.faek@gmail.com", :subject => "Registro Newsletter Mi Gran Empresa")
+		mail(:to => "contacto@migranempresa.com", :subject => "Registro Newsletter Mi Gran Empresa")
 	end
 
 
