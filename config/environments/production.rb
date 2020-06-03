@@ -98,7 +98,7 @@ config.action_mailer.smtp_settings = {
  :address              => "smtp.gmail.com",
  :port                 => 587,
  :user_name            => "contacto@migranempresa.com",
- :password             => "2019Bglegal",
+ :password             => "2019Migranempresa",
  :authentication       => :plain,
  :enable_starttls_auto => true
 }
