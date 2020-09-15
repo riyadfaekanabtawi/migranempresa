@@ -101,5 +101,40 @@
 <script src="https://migranempresa.s3.us-east-2.amazonaws.com/landing/js/jquery.mCustomScrollbar.concat.min.js"></script>
 <script src="https://migranempresa.s3.us-east-2.amazonaws.com/landing/js/script.js"></script>
 <script src="https://migranempresa.s3.us-east-2.amazonaws.com/landing/js/color-settings.js"></script>
+<script src="https://wisewiseapp.s3.us-east-2.amazonaws.com/toastr.min.js"></script>
+<script>
+
+
+
+
+  $(function () {
+
+    "use strict";
+
+    //TOASTR NOTIFICATION
+    // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    toastr.options = {
+    "progressBar": true,
+    "positionClass": "toast-bottom-right",
+    "timeOut": 3500,
+    "showEasing": "swing",
+    "hideEasing": "linear",
+    "showMethod": "slideDown",
+    "hideMethod": "fadeOut"
+    };
+
+  <% flash.each do |key, value| %>
+toastr.info('<h5 style="margin-top: 0px; margin-bottom: 5px;color:#fff;font-size:22px;"><b><%= value %></b></h5>');
+
+      <% end %>
+
+
+
+
+  });
+
+
+</script>
+
 </body>
 </html>

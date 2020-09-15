@@ -145,14 +145,25 @@ end
 	def sendContactRequest
 
 #	def send_alert_mail(nombre,email,telefono,message)
-		if params[:email] && params[:nombre] && params[:telefono] && params[:message]
 
-			UserMailer.send_alert_mail(params[:nombre],params[:email],params[:telefono],params[:message]).deliver
-			redirect_to thankyou_contact_url
-		else
 
-			redirect_to fillall_url
-		end
+success = verify_recaptcha(secret_key: '6LdAnMwZAAAAACr9GaRPlOGg8RIJ57dl4xn8FeW0')
+
+if success
+	if params[:email] && params[:nombre] && params[:telefono] && params[:message]
+
+		UserMailer.send_alert_mail(params[:nombre],params[:email],params[:telefono],params[:message]).deliver
+		redirect_to thankyou_contact_url
+	else
+
+		redirect_to fillall_url
+	end
+else
+	redirect_to contacto_url
+end
+
+
+		
 
 
 
