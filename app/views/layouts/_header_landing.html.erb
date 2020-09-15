@@ -24,11 +24,11 @@
 
 <% if @post %>
 
-   <meta property="og:url"           content="https://migranemrpesa.com/publicacion/<%= @post.company_name.gsub(' ','-') %>" />
+   <meta property="og:url"           content="https://www.migranempresa.com/publicacion/<%= @post.company_name.gsub(' ','-') %>" />
   <meta property="og:type"          content="<%= @post.company_name %>" />
   <meta property="og:title"         content="<%= @post.company_name %>" />
   <meta property="og:description"   content="<%= @post.company_description %>" />
-  <meta property="og:image"         content="https://migranempresa.com<%= @post.picture.url %>" />
+  <meta property="og:image"         content="https://www.migranempresa.com<%= @post.picture.url %>" />
 
 <% end %>
 
@@ -36,11 +36,11 @@
 
 <% if @company %>
 
-   <meta property="og:url"           content="https://migranemrpesa.com/empresa/<%= @company.name.gsub(' ','-') %>" />
+   <meta property="og:url"           content="https://www.migranempresa.com/empresa/<%= @company.name.gsub(' ','-') %>" />
   <meta property="og:type"          content="<%= @company.name %>" />
   <meta property="og:title"         content="<%= @company.name %>" />
   <meta property="og:description"   content="<%= @company.descripcion %>" />
-  <meta property="og:image"         content="https://migranempresa.com<%= @company.logo.url %>" />
+  <meta property="og:image"         content="https://www.migranempresa.com<%= @company.logo.url %>" />
 
 <% end %>
 
@@ -118,16 +118,7 @@
                                 <% else %>
                                      <li class=""><a href="/">Home</a></li>   
                                 <% end %>
-                                <% if request.path == "/about" %>
-                                     <li class="current"><a href="/about">Mi Gran Empresa</a></li>
-                                <% else %>
-                                     <li class=""><a href="/about">Mi Gran Empresa</a></li>   
-                                <% end %>
-                                 <% if request.path == "/services" %>
-                                     <li class="current"><a href="/services">Servicios</a></li>
-                                <% else %>
-                                     <li class=""><a href="/services">Servicios</a></li>   
-                                <% end %>
+                               
                                  <% if request.path == "/blog" %>
                                      <li class="current"><a href="/blog">Publicaciones</a></li>
                                 <% else %>
@@ -232,16 +223,8 @@
                                 <% else %>
                                      <li class=""><a href="/">Home</a></li>   
                                 <% end %>
-                                <% if request.path == "/about" %>
-                                     <li class="current"><a href="/about">Mi Gran Empresa</a></li>
-                                <% else %>
-                                     <li class=""><a href="/about">Mi Gran Empresa</a></li>   
-                                <% end %>
-                                 <% if request.path == "/services" %>
-                                     <li class="current"><a href="/services">Servicios</a></li>
-                                <% else %>
-                                     <li class=""><a href="/services">Servicios</a></li>   
-                                <% end %>
+                              
+                                
                                  <% if request.path == "/blog" %>
                                      <li class="current"><a href="/blog">Publicaciones</a></li>
                                 <% else %>
@@ -310,16 +293,8 @@
                                 <% else %>
                                      <li class=""><a href="/">Home</a></li>   
                                 <% end %>
-                                <% if request.path == "/about" %>
-                                     <li class="current"><a href="/about">Mi Gran Empresa</a></li>
-                                <% else %>
-                                     <li class=""><a href="/about">Mi Gran Empresa</a></li>   
-                                <% end %>
-                                 <% if request.path == "/services" %>
-                                     <li class="current"><a href="/services">Servicios</a></li>
-                                <% else %>
-                                     <li class=""><a href="/services">Servicios</a></li>   
-                                <% end %>
+                               
+                                
                                  <% if request.path == "/blog" %>
                                      <li class="current"><a href="/blog">Publicaciones</a></li>
                                 <% else %>
