@@ -124,12 +124,7 @@
                                 <% else %>
                                      <li class=""><a href="/blog">Publicaciones</a></li>   
                                 <% end %>
-                                <% if request.path == "/comunity" %>
-                                     <li class="current"><a href="/comunity">Comunidad</a></li>
-                                <% else %>
-                                     <li class=""><a href="/comunity">Comunidad</a></li>   
-                                <% end %>
-
+                          
 
                                  <% if request.path == "/columnistas" %>
                                      <li class="current dropdown" ><a href="/columnistas">Columnistas</a>
@@ -147,6 +142,11 @@
                                         <% end %>
                                     </ul></li>   
                                 <% end %>
+                                <% if request.path == "/comunity" %>
+                                <li class="current"><a href="/comunity">Comunidad</a></li>
+                           <% else %>
+                                <li class=""><a href="/comunity">Comunidad</a></li>   
+                           <% end %>
 
 
                                 <% if request.path == "/contacto" %>
@@ -230,11 +230,7 @@
                                 <% else %>
                                      <li class=""><a href="/blog">Publicaciones</a></li>   
                                 <% end %>
-                                        <% if request.path == "/comunity" %>
-                                     <li class="current"><a href="/comunity">Comunidad</a></li>
-                                <% else %>
-                                     <li class=""><a href="/comunity">Comunidad</a></li>   
-                                <% end %>
+                                
                                 <% if request.path == "/columnistas" %>
                                      <li class="current dropdown" ><a href="/columnistas">Columnistas</a>
                                       <ul>
@@ -252,7 +248,11 @@
                                     </ul></li>   
                                 <% end %>
 
-
+                                <% if request.path == "/comunity" %>
+                                <li class="current"><a href="/comunity">Comunidad</a></li>
+                           <% else %>
+                                <li class=""><a href="/comunity">Comunidad</a></li>   
+                           <% end %>
 
                                 <% if request.path == "/contacto" %>
                                      <li class="current"><a href="/contacto">Contacto</a></li>
@@ -300,11 +300,7 @@
                                 <% else %>
                                      <li class=""><a href="/blog">Publicaciones</a></li>   
                                 <% end %>
-                                        <% if request.path == "/comunity" %>
-                                     <li class="current"><a href="/comunity">Comunidad</a></li>
-                                <% else %>
-                                     <li class=""><a href="/comunity">Comunidad</a></li>   
-                                <% end %>
+                                    
                                  <% if request.path == "/columnistas" %>
                                      <li class="current dropdown" ><a href="/columnistas">Columnistas</a>
                                       <ul>
@@ -321,7 +317,11 @@
                                         <% end %>
                                     </ul></li>   
                                 <% end %>
-
+                                <% if request.path == "/comunity" %>
+                                <li class="current"><a href="/comunity">Comunidad</a></li>
+                           <% else %>
+                                <li class=""><a href="/comunity">Comunidad</a></li>   
+                           <% end %>
                                 <% if request.path == "/contacto" %>
                                      <li class="current"><a href="/contacto">Contacto</a></li>
                                 <% else %>
