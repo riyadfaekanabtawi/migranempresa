@@ -28,7 +28,7 @@
   <meta property="og:type"          content="<%= @post.company_name %>" />
   <meta property="og:title"         content="<%= @post.company_name %>" />
   <meta property="og:description"   content="<%= @post.company_description %>" />
-  <meta property="og:image"         content="https://www.migranempresa.com<%= @post.picture.url %>" />
+  <meta property="og:image"         content="https:<%= @post.picture.url %>" />
 
 <% end %>
 
@@ -40,7 +40,7 @@
   <meta property="og:type"          content="<%= @company.name %>" />
   <meta property="og:title"         content="<%= @company.name %>" />
   <meta property="og:description"   content="<%= @company.descripcion %>" />
-  <meta property="og:image"         content="https://www.migranempresa.com<%= @company.logo.url %>" />
+  <meta property="og:image"         content="https:<%= @company.logo.url %>" />
 
 <% end %>
 
