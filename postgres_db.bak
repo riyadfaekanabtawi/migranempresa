@@ -1,0 +1,709 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 10.14 (Ubuntu 10.14-0ubuntu0.18.04.1)
+-- Dumped by pg_dump version 10.14 (Ubuntu 10.14-0ubuntu0.18.04.1)
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- Name: ar_internal_metadata; Type: TABLE; Schema: public; Owner: mi_gran_empresa
+--
+
+CREATE TABLE public.ar_internal_metadata (
+    key character varying NOT NULL,
+    value character varying,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+ALTER TABLE public.ar_internal_metadata OWNER TO mi_gran_empresa;
+
+--
+-- Name: categories; Type: TABLE; Schema: public; Owner: mi_gran_empresa
+--
+
+CREATE TABLE public.categories (
+    id bigint NOT NULL,
+    name character varying,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL,
+    cat_id integer
+);
+
+
+ALTER TABLE public.categories OWNER TO mi_gran_empresa;
+
+--
+-- Name: categories_id_seq; Type: SEQUENCE; Schema: public; Owner: mi_gran_empresa
+--
+
+CREATE SEQUENCE public.categories_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.categories_id_seq OWNER TO mi_gran_empresa;
+
+--
+-- Name: categories_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: mi_gran_empresa
+--
+
+ALTER SEQUENCE public.categories_id_seq OWNED BY public.categories.id;
+
+
+--
+-- Name: columnists; Type: TABLE; Schema: public; Owner: mi_gran_empresa
+--
+
+CREATE TABLE public.columnists (
+    id bigint NOT NULL,
+    full_name character varying,
+    socials character varying,
+    semblanza character varying,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL,
+    picture_file_name character varying,
+    picture_content_type character varying,
+    picture_file_size bigint,
+    picture_updated_at timestamp without time zone,
+    facebook character varying,
+    twitter character varying,
+    linkedin character varying,
+    instagram character varying,
+    colm_id integer
+);
+
+
+ALTER TABLE public.columnists OWNER TO mi_gran_empresa;
+
+--
+-- Name: columnists_id_seq; Type: SEQUENCE; Schema: public; Owner: mi_gran_empresa
+--
+
+CREATE SEQUENCE public.columnists_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.columnists_id_seq OWNER TO mi_gran_empresa;
+
+--
+-- Name: columnists_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: mi_gran_empresa
+--
+
+ALTER SEQUENCE public.columnists_id_seq OWNED BY public.columnists.id;
+
+
+--
+-- Name: companies; Type: TABLE; Schema: public; Owner: mi_gran_empresa
+--
+
+CREATE TABLE public.companies (
+    id bigint NOT NULL,
+    name character varying,
+    descripcion character varying,
+    address character varying,
+    website character varying,
+    facebook character varying,
+    instagram character varying,
+    twitter character varying,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL,
+    logo_file_name character varying,
+    logo_content_type character varying,
+    logo_file_size bigint,
+    logo_updated_at timestamp without time zone,
+    linkedin character varying,
+    telefono character varying,
+    giro character varying,
+    comp_id integer
+);
+
+
+ALTER TABLE public.companies OWNER TO mi_gran_empresa;
+
+--
+-- Name: companies_id_seq; Type: SEQUENCE; Schema: public; Owner: mi_gran_empresa
+--
+
+CREATE SEQUENCE public.companies_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.companies_id_seq OWNER TO mi_gran_empresa;
+
+--
+-- Name: companies_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: mi_gran_empresa
+--
+
+ALTER SEQUENCE public.companies_id_seq OWNED BY public.companies.id;
+
+
+--
+-- Name: newsletterusers; Type: TABLE; Schema: public; Owner: mi_gran_empresa
+--
+
+CREATE TABLE public.newsletterusers (
+    id bigint NOT NULL,
+    name character varying,
+    email character varying,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL,
+    newsletteruser_id integer
+);
+
+
+ALTER TABLE public.newsletterusers OWNER TO mi_gran_empresa;
+
+--
+-- Name: newsletterusers_id_seq; Type: SEQUENCE; Schema: public; Owner: mi_gran_empresa
+--
+
+CREATE SEQUENCE public.newsletterusers_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.newsletterusers_id_seq OWNER TO mi_gran_empresa;
+
+--
+-- Name: newsletterusers_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: mi_gran_empresa
+--
+
+ALTER SEQUENCE public.newsletterusers_id_seq OWNED BY public.newsletterusers.id;
+
+
+--
+-- Name: posts; Type: TABLE; Schema: public; Owner: mi_gran_empresa
+--
+
+CREATE TABLE public.posts (
+    id integer NOT NULL,
+    company_name character varying,
+    company_description character varying,
+    category_id integer,
+    subcategory_id integer,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL,
+    logo_file_name character varying,
+    logo_content_type character varying,
+    logo_file_size bigint,
+    logo_updated_at timestamp without time zone,
+    company_id integer,
+    picture_file_name character varying,
+    picture_content_type character varying,
+    picture_file_size bigint,
+    picture_updated_at timestamp without time zone,
+    post_id integer,
+    columnist_id integer
+);
+
+
+ALTER TABLE public.posts OWNER TO mi_gran_empresa;
+
+--
+-- Name: posts_id_seq; Type: SEQUENCE; Schema: public; Owner: mi_gran_empresa
+--
+
+CREATE SEQUENCE public.posts_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.posts_id_seq OWNER TO mi_gran_empresa;
+
+--
+-- Name: posts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: mi_gran_empresa
+--
+
+ALTER SEQUENCE public.posts_id_seq OWNED BY public.posts.id;
+
+
+--
+-- Name: posts_post_id_seq; Type: SEQUENCE; Schema: public; Owner: mi_gran_empresa
+--
+
+CREATE SEQUENCE public.posts_post_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.posts_post_id_seq OWNER TO mi_gran_empresa;
+
+--
+-- Name: schema_migrations; Type: TABLE; Schema: public; Owner: mi_gran_empresa
+--
+
+CREATE TABLE public.schema_migrations (
+    version character varying NOT NULL
+);
+
+
+ALTER TABLE public.schema_migrations OWNER TO mi_gran_empresa;
+
+--
+-- Name: subcategories; Type: TABLE; Schema: public; Owner: mi_gran_empresa
+--
+
+CREATE TABLE public.subcategories (
+    id bigint NOT NULL,
+    name character varying,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL,
+    subcat_id integer
+);
+
+
+ALTER TABLE public.subcategories OWNER TO mi_gran_empresa;
+
+--
+-- Name: subcategories_id_seq; Type: SEQUENCE; Schema: public; Owner: mi_gran_empresa
+--
+
+CREATE SEQUENCE public.subcategories_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.subcategories_id_seq OWNER TO mi_gran_empresa;
+
+--
+-- Name: subcategories_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: mi_gran_empresa
+--
+
+ALTER SEQUENCE public.subcategories_id_seq OWNED BY public.subcategories.id;
+
+
+--
+-- Name: users; Type: TABLE; Schema: public; Owner: mi_gran_empresa
+--
+
+CREATE TABLE public.users (
+    id bigint NOT NULL,
+    email character varying,
+    password_digest character varying,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL,
+    name character varying
+);
+
+
+ALTER TABLE public.users OWNER TO mi_gran_empresa;
+
+--
+-- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: mi_gran_empresa
+--
+
+CREATE SEQUENCE public.users_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.users_id_seq OWNER TO mi_gran_empresa;
+
+--
+-- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: mi_gran_empresa
+--
+
+ALTER SEQUENCE public.users_id_seq OWNED BY public.users.id;
+
+
+--
+-- Name: categories id; Type: DEFAULT; Schema: public; Owner: mi_gran_empresa
+--
+
+ALTER TABLE ONLY public.categories ALTER COLUMN id SET DEFAULT nextval('public.categories_id_seq'::regclass);
+
+
+--
+-- Name: columnists id; Type: DEFAULT; Schema: public; Owner: mi_gran_empresa
+--
+
+ALTER TABLE ONLY public.columnists ALTER COLUMN id SET DEFAULT nextval('public.columnists_id_seq'::regclass);
+
+
+--
+-- Name: companies id; Type: DEFAULT; Schema: public; Owner: mi_gran_empresa
+--
+
+ALTER TABLE ONLY public.companies ALTER COLUMN id SET DEFAULT nextval('public.companies_id_seq'::regclass);
+
+
+--
+-- Name: newsletterusers id; Type: DEFAULT; Schema: public; Owner: mi_gran_empresa
+--
+
+ALTER TABLE ONLY public.newsletterusers ALTER COLUMN id SET DEFAULT nextval('public.newsletterusers_id_seq'::regclass);
+
+
+--
+-- Name: posts id; Type: DEFAULT; Schema: public; Owner: mi_gran_empresa
+--
+
+ALTER TABLE ONLY public.posts ALTER COLUMN id SET DEFAULT nextval('public.posts_id_seq'::regclass);
+
+
+--
+-- Name: subcategories id; Type: DEFAULT; Schema: public; Owner: mi_gran_empresa
+--
+
+ALTER TABLE ONLY public.subcategories ALTER COLUMN id SET DEFAULT nextval('public.subcategories_id_seq'::regclass);
+
+
+--
+-- Name: users id; Type: DEFAULT; Schema: public; Owner: mi_gran_empresa
+--
+
+ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_id_seq'::regclass);
+
+
+--
+-- Data for Name: ar_internal_metadata; Type: TABLE DATA; Schema: public; Owner: mi_gran_empresa
+--
+
+COPY public.ar_internal_metadata (key, value, created_at, updated_at) FROM stdin;
+environment	production	2020-05-19 16:35:21.955859	2020-05-19 16:35:21.955859
+\.
+
+
+--
+-- Data for Name: categories; Type: TABLE DATA; Schema: public; Owner: mi_gran_empresa
+--
+
+COPY public.categories (id, name, created_at, updated_at, cat_id) FROM stdin;
+1	Mercadotecnia	2020-05-19 17:05:20.442776	2020-05-19 17:05:20.442776	1
+2	Educación	2020-05-19 17:05:25.271306	2020-05-19 17:05:25.271306	2
+3	Tecnología	2020-05-19 17:05:30.999035	2020-05-19 17:05:30.999035	3
+4	Gastronomia	2020-05-19 17:05:40.907367	2020-05-19 17:05:40.907367	4
+5	Global	2020-05-19 17:05:48.67904	2020-05-19 17:05:48.67904	5
+6	General	2020-05-19 17:05:52.188032	2020-05-19 17:05:52.188032	6
+\.
+
+
+--
+-- Data for Name: columnists; Type: TABLE DATA; Schema: public; Owner: mi_gran_empresa
+--
+
+COPY public.columnists (id, full_name, socials, semblanza, created_at, updated_at, picture_file_name, picture_content_type, picture_file_size, picture_updated_at, facebook, twitter, linkedin, instagram, colm_id) FROM stdin;
+1	Luis Andres Acevedo	\N	                                                                                                    Fundador de 4 compañías digitales, MyVoga, Tienditapp, Züggig, Wise and Bet Friends Club. Co Fundador de 2 ONGs, Fundación Caltia y Trabajando para los Nietos. Experto en e-Commerce, tratando de ayudar a las personas de México a través de la creación de plataformas digitales.\r\n                    \r\n                    \r\n                    \r\n                    \r\n                    	2020-05-19 16:55:35.610662	2020-05-19 16:55:35.610662	pach.jpg	image/jpeg	8685	2020-05-19 16:55:35.582689	www.facebook.com/pachons		www.linkedin.com/in/andres1/	www.instagram.com/pachacevedo	1
+2	Vieri Figallo	\N	                                                                                                    CEO de Figallo No Format Agency. Demostrando que se puede ser chingo sin chingarse a nadie. \r\n                    \r\n                    \r\n                    \r\n                    \r\n                    	2020-05-19 16:56:21.926535	2020-05-19 16:56:21.926535	vieri.jpg	image/jpeg	726477	2020-05-19 16:56:21.914467	https://www.facebook.com/figallo	@Vieri_Figallo	https://mx.linkedin.com/in/vierinfp	@Vieri_Figallo	2
+3	Francisco Javier Belgodere Hernández	\N	Mi objetivo es construir un mundo mejor, en el que todos tengamos acceso a oportunidades y contemos con las capacidades para aprovecharlas. Creo que la iniciativa privada debe asumir un papel relevante en el desarrollo de nuestras comunidades y que cada empresa debe contribuir brindando servicios que agreguen valor. Trabajo en Fintech porque considero que es indispensable para el crecimiento de las pequeñas y medianas empresas, así como para la democratización de los servicios financieros. 	2020-05-19 16:56:55.027833	2020-05-19 16:56:55.027833	paco.jpg	image/jpeg	54993	2020-05-19 16:56:55.021641	https://www.facebook.com/Pacobh				3
+4	Omar Dergal	\N	Fundador de Flight Capital, company builder que se enfoca construir empresas de tecnología con especialización en desarrollo de software, Marketing, estrategia de negocio y financiera. Fue parte del consejo de Cultura Colectiva de la cual tiene acciones, fundador  de #Conéctate APP que lanzó en alianza con el Gobierno de la CDMX, la cual permite generar conexiones de negocio y truque entre los ciudadanos de forma hiperlocal.             \r\n                    	2020-09-02 19:50:55.796555	2020-09-02 19:50:55.796555	WhatsApp_Image_2020-09-02_at_13.53.59_(1).jpeg	image/jpeg	4027	2020-09-02 19:50:55.453442					4
+\.
+
+
+--
+-- Data for Name: companies; Type: TABLE DATA; Schema: public; Owner: mi_gran_empresa
+--
+
+COPY public.companies (id, name, descripcion, address, website, facebook, instagram, twitter, created_at, updated_at, logo_file_name, logo_content_type, logo_file_size, logo_updated_at, linkedin, telefono, giro, comp_id) FROM stdin;
+4	BanWire	Somos esa solución de pagos que se adapta a las necesidades de cada empresa, desde operaciones en e-commerce hasta la seguridad de los datos personales, buscando así multiplicar las ventas.	Paseo de la reforma 300, Juarez	https://www.banwire.com/	https://www.facebook.com/BanWireMX/	-	-	2020-05-19 17:01:31.086747	2020-05-19 17:01:31.086747	banwire.png	image/png	56008	2020-05-19 17:01:31.080822	-	5515799155	Financiero	4
+5	Idyliko	Somos una consultoría de nicho, totalmente en especializada en la creación de experiencias del cliente, bajo una metodolgía de "Customer Experience Management"	Av. Lomas del Valle 445, Col. Lomas del Valle, San Pedro Graza García, NL.	https://www.idyliko.com/	https://www.facebook.com/idyliko/		https://twitter.com/Idyliko_CX	2020-05-19 17:02:38.578993	2020-05-19 17:02:38.578993	idyliko.png	image/png	17226	2020-05-19 17:02:38.573152	https://www.linkedin.com/company/idyliko-s-a-de-c-v-/	81 8850 8833	Consultoría	5
+7	Tienditapp	Aplicación por la cual puedes pedir productos de la tiendita a domicilio.	Lope de Vega 108, Polanco, Ciudad de México	https://www.tienditapp.com/	-	-	-	2020-05-19 17:04:15.901784	2020-05-19 17:04:15.901784	tapp.png	image/png	66958	2020-05-19 17:04:15.895847	-	0445543571631	E-commerce	7
+8	MyVoga	Desarrollo de estrategias digitales, sitios web, aplicaciones, compra de medios, redes sociales y más.	Lope de Vega 108, Polanco, Ciudad de México 	http://myvoga.com/	-	-	-	2020-05-19 17:04:59.13472	2020-05-19 17:04:59.13472	myvoga.png	image/png	21355	2020-05-19 17:04:59.128654	-	0445543571631	Marketing Digital	8
+1	Leescúbrelo	Promovemos la lectura para mejorar la educación en México y América Latina 	Río Tiber #93, piso 1, Col. Cuauhtémoc, Del. Cuauhtémoc, CDMX, C.P. 06500	https://leescubrelo.com/	https://www.facebook.com/Leescubrelo/	-	-	2020-05-19 16:58:45.827513	2020-06-01 15:36:27.075554	leescubrelo.png	image/png	15708	2020-05-19 16:58:45.821181	-	55 2211 0997	Educación 	1
+3	Bridge	Nos especializamos en empresas sociales y startups de los sectores: educación, Fintech, tecnología e internet, servicios, comercio electrónico e inmobiliario, a quienes les brindamos soluciones en materia de Gobierno Corporativo, Propiedad Intelectual y Asesoría Legal.	Río Tiber #93, piso 1, Col. Cuauhtémoc, Del. Cuauhtémoc, CDMX, C.P. 06500	www.bridgeconnet.com.mx	https://www.facebook.com/BridgeBelgodere/	-	-	2020-05-19 17:00:34.774014	2020-06-01 15:37:13.692687	bridge.png	image/png	9749	2020-05-19 17:00:34.768065	-	55 2211 0994 y 55 2211 0995	Consultoría	3
+6	Break Catering 	Es una empresa especializada en el servicio de catering para empresas y corporativos, ofrecemos  soluciones a la medida para juntas de trabajo, capacitaciones y todo tipo de eventos.	Río Tiber #93, piso 1, Col. Cuauhtémoc, Del. Cuauhtémoc, CDMX, C.P. 06500	https://breakcatering.com/	https://www.facebook.com/breakcatering/	-	-	2020-05-19 17:03:25.174939	2020-06-01 15:37:51.901752	break_cat.png	image/png	8424	2020-05-19 17:03:25.168939	-	55 2211 0996	Servicios 	6
+2	Figallo No Format Agency	Agencia de comunicación creativa. Trasformamos la DATA en acciones que demuestren el propósito de las marcas. 	- 	https://www.figallo.com.mx/	https://www.facebook.com/figallonfa/	@NoFormatAgency	https://twitter.com/NoFormatAgency	2020-05-19 16:59:39.97066	2020-06-03 21:28:14.08641	Figallo_-_MGE-206X260.png	image/png	16820	2020-06-01 15:35:25.570043	https://www.linkedin.com/company/figallo-comunicaciones	5348 3948	Comunicación e imagen	2
+\.
+
+
+--
+-- Data for Name: newsletterusers; Type: TABLE DATA; Schema: public; Owner: mi_gran_empresa
+--
+
+COPY public.newsletterusers (id, name, email, created_at, updated_at, newsletteruser_id) FROM stdin;
+1		migranempresa.com@domstat.su	2020-06-13 07:30:13.048055	2020-06-13 07:30:13.048055	1
+2		migranempresa.com@domstat.su	2020-06-14 03:42:05.548555	2020-06-14 03:42:05.548555	2
+3		migranempresa.com@domstat.su	2020-06-18 13:37:30.243708	2020-06-18 13:37:30.243708	3
+4	Regional	jjohnson25177@aol.com	2020-06-25 19:07:22.580781	2020-06-25 19:07:22.580781	4
+5	Designer	cnyhan@preti.com	2020-06-27 12:44:18.851646	2020-06-27 12:44:18.851646	5
+6	New York	lfrancis12@gmx.com	2020-06-30 06:17:12.386686	2020-06-30 06:17:12.386686	6
+7	Avon	jmmerluzzo@verizon.net	2020-07-03 22:31:45.556454	2020-07-03 22:31:45.556454	7
+8	hub	ashleyy08@aol.com	2020-07-06 14:20:31.966899	2020-07-06 14:20:31.966899	8
+9		migranempresa.com@domstat.su	2020-07-07 05:34:23.170683	2020-07-07 05:34:23.170683	9
+10	Pants	r.mnelson@yahoo.com	2020-07-10 03:08:19.702802	2020-07-10 03:08:19.702802	10
+11	Handmade Granite Chair	ntadic@usa.net	2020-07-10 10:59:02.732525	2020-07-10 10:59:02.732525	11
+12	heuristic	shaecardenas27@yahoo.com	2020-07-11 04:18:01.850239	2020-07-11 04:18:01.850239	12
+13	Program	leannhilton@hiltonmgmt.com	2020-07-19 09:38:55.457533	2020-07-19 09:38:55.457533	13
+14	Identity	msariol@yahoo.com	2020-07-20 18:23:55.849972	2020-07-20 18:23:55.849972	14
+15	Toys	cra@myburgh.ca	2020-07-20 20:17:54.472454	2020-07-20 20:17:54.472454	15
+16	e-business	zabeka001@yahoo.com	2020-07-24 08:37:24.542024	2020-07-24 08:37:24.542024	16
+17		migranempresa.com@domstat.su	2020-07-25 07:57:23.619377	2020-07-25 07:57:23.619377	17
+18	UIC-Franc	eggbert1234@yahoo.com	2020-07-29 02:38:35.158892	2020-07-29 02:38:35.158892	18
+19	Australian Dollar	leann@hiltonmgmt.com	2020-07-29 18:34:21.52909	2020-07-29 18:34:21.52909	19
+20		migranempresa.com@domstat.su	2020-08-01 04:31:35.40587	2020-08-01 04:31:35.40587	20
+21		migranempresa.com@domstat.su	2020-08-01 06:08:43.146123	2020-08-01 06:08:43.146123	21
+22	parsing	info@spornia.com	2020-08-08 03:17:09.819289	2020-08-08 03:17:09.819289	22
+23	Synchronised	michelle.boucher@ocdsb.ca	2020-08-13 12:59:25.147496	2020-08-13 12:59:25.147496	23
+24	payment	ron.hogenboom@nl.gt.com	2020-08-20 04:51:42.413886	2020-08-20 04:51:42.413886	24
+25	Wyoming	weaver_kyle@yahoo.com	2020-08-24 14:31:31.447455	2020-08-24 14:31:31.447455	25
+26	neural	fpierre209@aol.com	2020-08-26 09:23:45.663179	2020-08-26 09:23:45.663179	26
+27	violet	leann.hilton@yahoo.com	2020-09-05 20:45:19.577209	2020-09-05 20:45:19.577209	27
+28	East Caribbean Dollar	bern0808@aol.com	2020-09-08 13:54:48.882592	2020-09-08 13:54:48.882592	28
+29		migranempresa.com@domstat.su	2020-09-14 09:32:09.736472	2020-09-14 09:32:09.736472	29
+30	e-services	claireparker@ucla.edu	2020-09-15 00:43:25.879224	2020-09-15 00:43:25.879224	30
+31	1080p	lapennanic@gmail.com	2020-09-17 02:05:31.153255	2020-09-17 02:05:31.153255	31
+32		migranempresa.com@domstat.su	2020-09-22 12:58:37.263643	2020-09-22 12:58:37.263643	32
+33	Unbranded	catwhispers55@gmail.com	2020-09-24 16:11:11.088613	2020-09-24 16:11:11.088613	33
+\.
+
+
+--
+-- Data for Name: posts; Type: TABLE DATA; Schema: public; Owner: mi_gran_empresa
+--
+
+COPY public.posts (id, company_name, company_description, category_id, subcategory_id, created_at, updated_at, logo_file_name, logo_content_type, logo_file_size, logo_updated_at, company_id, picture_file_name, picture_content_type, picture_file_size, picture_updated_at, post_id, columnist_id) FROM stdin;
+2	5 lecturas que te recomiendo leer al iniciar tu camino como Emprendedor	En varias ocasiones he visto publicaciones similares a esta, en las que se mencionan los libros que “todo emprendedor debe leer”. Lo que busco en este breve artículo es recomendarte 5 libros que me hubiera gustado leer antes de iniciar mi camino como emprendedor, ya que estoy convencido que su impacto en ese momento me pudo evitar muchos dolores de cabeza. Cuando inicias tu camino como emprendedor sueles tener la sensación de que los días deberían de tener 30 horas o las semanas 9 días, que estás muy ocupado con planes de negocio, presentaciones, visitando posibles inversionistas y dirigiendo una nueva empresa, como para además tener que dedicar tiempo a leer. Ser emprendedor no es un trabajo, es un estilo de vida, y uno muy demandante, en el cual el conocimiento del entorno, del mercado y el estudio son piedra angular. La primera de mis recomendaciones es “El emprendedor solitario” de Michael Dremer, en este libro podrás conocer el tipo de problemas que acompañan día a día a los emprendedores, así como recibirás consejos muy prácticos de parte del autor, quien lo vivió en carne propia. Brinda un panorama muy realista de lo que implica ser emprendedor, de aquello que logra frustrarnos al iniciar un proyecto y de algunos errores comunes que cometemos al enfrentarnos a momentos de mucha presión. En lo personal me identifiqué con muchas situaciones que relata el autor y lo considero una gran herramienta para tener una visión muy general del camino que emprendes. Como segunda recomendación te propongo “Las 7 claves del éxito de Disney” de Tom Connellan, te será de mucha utilidad conocer algunos de los pilares de la cultura organizacional de Disney, que han sido fundamentales en el éxito de la empresa. Habrá muchos que piensen que es una distracción pensar en cultura organizacional cuando apenas han contratado a uno o dos colaboradores, te podría decir que ya vas tarde, la cultura debe construirse desde el primer día, debes vivirla tú, como emprendedor desde el inicio, para que logre permear en tu equipo de trabajo y construyas una empresa con visión ganadora. Cambiar una cultura organizacional cuando sacar adelante un negocio es sumamente desgastante, siempre será mejor empujar la cultura desde el inicio. El tercer libro que te quiero recomendar es “Creatividad S.A.” de Ed Catmull, será de gran inspiración ya que narra la historia de PIXAR desde su fundación. Además de inspirar, este libro también te ayudará a tener fe en el proceso y una gran orientación a la excelencia. Fue realmente estimulante conocer la forma en que se formó una de las empresas más exitosas que se han visto en la industria del entretenimiento y que cada una de sus películas han sido exitosas. Como cuarta recomendación te propongo “Mercedes-Benz, driven to delight” de Joseph A. Michelli, en él se cuenta la historia de como la empresa que por muchos años había tenido una orientación al producto, decidió tener un cambio radical y buscar ser la empresa número 1 en satisfacción del cliente. Este libro me parece excelente para iniciar un proyecto como emprendedor, ya que solemos enfocarnos mucho en el producto que lanzaremos al mercado, pero en ocasiones olvidamos al cliente en el proceso. La forma en la que se desenvuelve el libro resulta gran introducción para el tema de Experiencia del Cliente, que te será muy útil para contar con una solución, ya sea un producto o servicio, que satisfaga al cliente completamente.  Mi última recomendación es muy especial, al iniciar proyectos nos preocupamos mucho por la planeación y en ocasiones elaboramos planes demasiados complejos, que difícilmente seguimos, por ello te invito a conocer “Las 4 Disciplinas de la Ejecución” de Sean Covey, que propone una metodología muy especial que bien podría formar parte esencial del sistema operativo de tu empresa. En lo personal he utilizado esta metodología en varias ocasiones para sacar a buen flote proyectos, de una forma simple, orientada en pequeños triunfos de cada miembro del equipo y la rendición de cuentas constantes. Como podrás darte cuenta al concluir las 5 lecturas que te propongo, el enfoque que doy a mis recomendaciones está muy centrado en la satisfacción del cliente y tiene toda la lógica, ya que él es la razón de ser de toda empresa. Los productos o servicios que tienen éxito en el mercado son aquellos que realmente satisfacen una necesidad del cliente, para lograrlo es importante un enfoque obsesivo al cliente desde el diseño de nuestra solución, de lo contrario nos arriesgamos a contar con un producto hermoso, con excelentes acabados y los mejores materiales, pero que no resuelve ningún problema al cliente. Recuerda, si tu producto o servicio realmente resuelven un problema importante al cliente y le agregan valor a su vida, los problemas de tu empresa se limitarán a aspectos como precio, costo y volumen. Espero que al terminar cada una de mis recomendaciones, tengas la sensación de que fue tiempo bien invertido y que agrega valor a tu camino como emprendedor. 	2	1	2020-05-19 17:30:48.089698	2020-05-19 17:30:48.089698	\N	\N	\N	\N	3	5_lecturas.jpg	image/jpeg	203715	2020-05-19 17:30:48.078666	3	3
+3	Errores que frenan tu emprendimiento	Recientemente leí que México descendió 4 lugares en el Índice Global de Emprendimiento 2018. Este documento estudia la calidad de los ecosistemas emprendedores de 137 países, donde el nuestro se ubicó en el número 75, debido a que los nuevos negocios mexicanos tienen bajas evaluaciones en los rubros de soporte cultural, percepción de oportunidades de negocio y habilidades emprendedoras.  Impulsar un negocio y mantenerlo es muy complicado, mas no imposible. Este año, la empresa que construí cumple 10 años. A pesar de ello no digo que ya la armé, me falta muchísimo; mi visión va más allá del dinero, es un proyecto de vida que quiero compartir con cada talento que se suba al barco, y con cada emprendedor que decida aventurarse en estos terrenos. Por ello, comparto algunos errores que frenan los emprendimientos.  Creer que la llegada de dinero es constante  Todo emprendedor debe administrarse, de tal forma que la escasez del dinero no acabe con su negocio. Uno de los errores que se comenten al crear una compañía es creer que ésta será una mina de oro, la realidad es que los clientes van y vienen, y en ocasiones no todos pagan a tiempo.   Aquí es cuando tu cerebro no puede cerrarse, tienes que hacer más con menos. Al formar un equipo el último que come eres tú, además no terminas de pagar una quincena cuando ya estás entrando a la otra. Las cuentas por pagar son interminables y las entradas de dinero no son tan rápidas como uno quisiera, así que debes buscar oportunidades de negocio.   No actualizarse  Otro error es no actualizarse y ser sólo disciplinario. Sin importar el mercado en el que se está inserto, para crecer hay que ser interdisciplinario, leer y estudiar sobre finanzas, administración, marketing, liderazgo, incluso ver series o películas sobre gestión.   Tratar de funcionar siempre con los mismos recursos  En cuanto más creces, más recursos necesitas: infraestructura, gente, salarios, etc. Tampoco es conveniente mantener un negocio de nivel junior porque la zona de confort es muy peligrosa. Una empresa no se hace para que los socios sean millonarios, sino para ser una plataforma que distribuya las ganancias, y donde el dinero sea visto como un instrumento más para poder llegar a los objetivos.   El ego   El error de muchos emprendedores es el ego o el miedo a trabajar con gente más experimentada, pero el camino al éxito es ser humilde, estar abierto a muchos cambios y a escuchar, no a imponer. Todo es aprendizaje, y conforme vas avanzando van apareciendo nuevas personas que te hacen ver que solo no puedes: debes delegar responsabilidades y dejar que alguien más comparta el riesgo contigo.   Ser intolerante   Lo que no te dicen de emprender es que te enfrentarás a situaciones a las que jamás, en ninguna clase de la universidad, te enseñaron cómo solucionar. Lo único que te hará vencedor es la forma en cómo manejas cada situación. Entre ellas lidiar con un cliente enojado o solucionar un conflicto interno con tu equipo de trabajo. Aquí es donde verás que no solo diriges un negocio o administras dinero, sino estados de ánimo.   Es normal pensar en tirar la toalla, pero, en cualquier caso, los emprendimientos se construyen a base de prueba y error, y en el camino hay diferentes obstáculos que se deben sortear, pero también está lleno de aprendizajes y de grandes satisfacciones.   En resumen, si no tienes carácter no emprendas. Tener carácter no es gritar y enojarte de todo, sino lidiar con todas las situaciones, favorables y adversas, y levantarte rápido cuando te caes. 	6	1	2020-05-19 17:31:28.555493	2020-05-19 17:31:28.555493	\N	\N	\N	\N	2	errores_q_enfrentan.jpg	image/jpeg	150030	2020-05-19 17:31:28.548786	4	2
+4	Publicidad para Pymes, ¿Por dónde comienzo?	En México, las PyMES son vitales para equilibrar la economía por dos razones: los acuerdos comerciales que ha tenido el país en los últimos años y el impacto que tienen en la generación de empleos, de hecho, cifras del INEGI indican que en la República Mexicana existen 4 millones 15 mil empresas, de las cuales el 99.8% son Pequeñas y Medianas Empresas y contribuyen con el 52% del Producto Interno Bruto nacional.  Este universo nos pone como potencia comercial para otros países. La Condusef define a las PyMES como la pequeña o mediana empresa que desarrolla cualquier tipo de actividad, ya sea producción, comercialización o prestación de servicios. Muchas PyMES arrancan sin un plan de marketing o estrategia bien definida. Algunas empresas crecen por inercia, por sus contactos profesionales, porque saben hacer muy bien lo que comercializan sin haber necesitado de la magia del marketing, pero a toda empresa le llega su factura de no tener un rumbo claro en la imagen de su marca. Si bien, hay PyMES que no se aventuran a tener una campaña de marketing por los altos costos que esto implica. El proceso para ejecutar una acción de publicidad puede llegar a ser costosa: pago de honorarios a la agencia, pago para producir las ideas propuestas y donde se va la mayor inversión es en la contratación de medios para que la iniciativa tenga visibilidad.  Toda estrategia de marketing bien planeada requiere una inversión -habrá ROI si se hace correctamente-, esa es la finalidad de crecer el valor de las marcas, vender más. Si no te conocen, ¿cómo te van a comprar? Si aún no tienes un plan de marketing y no sabes por dónde empezar, te recomiendo que primero fortalezcas tu imagen e incursiones en el mundo digital. 1) Tener una imagen corporativa sólida y definida. Invierte en la imagen de tu empresa. Busca una agencia especializada en branding para darle un significado a tu imagen homologando la comunicación en toda la papelería que tu empresa utiliza.  2) Ten un sitio web profesional. Busca una agencia especializada en desarrollar sitios. Un buen sitio no será económico. Un sitio que tenga toda la información de tu compañía, con fotografías profesionales y vídeos que generen un buen contenido. Es muy importante que tu sitio esté bien estructurado y optimizado para que conecte correctamente en un ecosistema digital, esto es, que tenga un plan de mantenimiento en SEO e integre Analytics de Google para poder tener un reporte de tráfico en el sitio. 3) Campañas en Google (AdWords). Esta forma de hacer publicidad es muy valiosa. Siempre estarás en los primeros lugares cuando un usuario busque tu servicio o producto. Es importante que las campañas estén optimizadas con el contenido de tu sitio para así bajar el costo por clic, pues Google cobra por cada clic generado en el enlace.  Estos son los primeros tres pasos para empezar a invertir en publicidad. Tener una imagen sólida, un sitio web profesional e invertir en buscadores. Luego se tendrá que trabajar en un plan de 6 a 12 meses e identificar oportunidades con los datos que irán arrojando las campañas por internet. Una vez que se generen resultados, hay que explorar otros formatos para hacer publicidad. La creatividad siempre será vital para poder sobre salir en un mundo saturado de información.	1	1	2020-05-19 17:31:59.481539	2020-05-19 17:31:59.481539	\N	\N	\N	\N	2	publicidad_pymes.jpg	image/jpeg	225864	2020-05-19 17:31:59.47489	5	2
+5	3 textos que dirigen mi emprendimiento 	Gracias a Mi Gran Empresa por darme la oportunidad de escribir para la comunidad de emprendedores y posibles emprendedores, es la primera vez que publico algo en mi vida, espero mínimo logre entretenerte y que termines de leer este artículo hecho con muchas ganas.   Antes de dar el salto como emprendedor es bueno mentalizarte a que tendrás que ser tú la persona que te anime todos los días a seguir adelante.   Te recomiendo que lo primero que realices sea:   Paso 1: Encontrar tu sentido de vida Paso 2: Establecer una meta a corto plazo Paso 3: Establecer una meta a mediano plazo   Redacta cada uno de estos tres pasos y déjalos en papel encima de tu escritorio o en algún lugar donde solo tú los puedas ver día a día. Que estas tres redacciones sean el motor de tus días ante circunstancias donde quieras tirar la toalla, pero sobre todo que sean tu motivación a toda hora para alcanzar el éxito.   Para redactar el primer paso, sentido de vida, busca dentro de ti ¿Cuál es tu razón de vivir?, ¿Para qué viniste al mundo? Te recomiendo el libro de Super Cerebro de Deepak Chopra, donde te hace preguntas de por qué estás aquí y qué potencializará tu felicidad.  Te dejo un ejemplo de cómo puedes redactar tu sentido de vida:  Quiero tener un hotel en la playa que genere muchas fuentes de empleo y que sea ejemplo de como conservar la ecología, a donde puedan llegar mis papas, hermanos y sobrinos para disfrutar del mar y junto con mi esposa e hijos lograr una convivencia plena, con mucha espiritualidad y en libertad financiera.   Para encontrar y redactar una meta a corto y mediano plazo, te recomido el libro de Piense y Hágase Rico (rico es igual a lo que queremos, no necesariamente dinero) de Napoleón Hill, donde también te alienta a realizar una buena redacción para tus propósitos o deseos. El autor te recomienda que debes de ser claro en lo que vas a escribir, te pide que fijes una fecha, un monto de dinero, cómo recibirás ese dinero, que harás para hacer llegar ese dinero y ese dinero como ayudará a demás personas.   Un ejemplo de meta a corto plazo sería:   El 31 de enero del 2020 mi empresa será poseedora de $$$$$ de dólares que llegarán a través del pago de X producto en diversas sumas durante X meses. A cambio de ese dinero daré todo el esfuerzo y dedicación como fundador, ayudando en crecimiento personal y profesional a mi equipo y sus familias.    La razón de que leas todos los días tu redacción del Sentido de Vida, Meta a Corto Plazo y Meta a Mediano Plazo es que llegues a un punto de autosugestión donde te la CREAS, actúa como si ya hubiera pasado y tu subconsciente más la energía del universo trabajará para ti mientras vas disfrutando de los avances, y por otro lado en consciencia siempre da tu mejor esfuerzo sintiendo que lo que haces te hace muy feliz, recuerda que el camino será más fácil si lo haces divertido. 	6	1	2020-05-19 17:32:39.753917	2020-05-19 17:32:39.753917	\N	\N	\N	\N	8	3_Textos_q_dirigen.jpg	image/jpeg	338620	2020-05-19 17:32:39.746919	6	1
+1	El check out en el ecommerce  Como concretar mas ventas	Como comerciantes solemos hacer circo, maroma y teatro para atraer clientes a nuestros negocios con la esperanza de concretar una venta. Nos emociona pensar en todo el proceso comercial, desde que el cliente nos descubre en algún anuncio o en redes sociales, cuando interactúa con nuestros vendedores o visita nuestra tienda, pero en ocasiones se nos olvida el último paso, sin el cual es imposible concretar la venta: el pago. No hay nada más frustrante que se nos caiga una venta por falta de un método de pago adecuado. Mi primera interacción con el mundo del e-commerce y los métodos de pago fue hace unos ocho años, cuando iniciamos un proyecto de procuración de fondos para diversas ONG’s en línea, el cual permitía a los donantes conocer datos relevantes sobre la organización, tanto en el ámbito organizacional, como de impacto social, en verdad era una joya, pero después de mucho esfuerzo, como muchos otros proyectos digitales: fracasó. En ocasiones creemos que el e-commerce es una forma de vender que no implica trabajo para el comerciante, que se da en automático porque tiene que ver con computadoras y sistemas: nada más alejado de la realidad. Hoy en día el e-commerce debe formar parte integral de la estrategia de las empresas, las que deben comprender que el principal beneficiario es el cliente y que deberá de competir con muchos por atraerlo y retenerlo. La estrategia de e-commerce de la empresa debe considerar que habrá clientes que consuman directamente en la página, quizá otros conozcan el producto en digital y concreten la venta en la tienda física y que habrá quienes realicen la visita exclusivamente para decidir si compra en línea o en tienda, dependiendo del precio o facilidades que cada una ofrezca. Pero en todos estos casos deberemos estar preparados para la compra, para ello es recomendable que dediquemos el mismo esfuerzo que realizamos en los demás elementos de la estrategia, para que la hora de la verdad: el pago, forme parte de la experiencia de compra. El check out de un e-commerce debe considerar: usabilidad, confianza, practicidad y flexibilidad. Usabilidad que haga simple e intuitiva la interacción para el cliente; confianza brindando la información de la transacción, el medio de pago, que sus datos están protegidos, las normas de seguridad que adopta el comercio e información sobre el cargo y como lo podrá identificar en su estado de cuenta; practicidad brindándole un check out veloz para sus compras posteriores una vez que ya se registró como usuario, y; flexibilidad al brindarle diversidad de medios de pago y facilidades.	3	3	2020-05-19 17:30:18.517853	2020-05-20 17:11:49.52733	\N	\N	\N	\N	3	PostBanWire-MGE580x387.jpg	image/jpeg	164010	2020-05-20 17:11:49.485399	2	3
+6	Guerreros Emprendedores  	Cuando hablamos del emprendimiento o de construir una empresa, pensamos en un camino que tiene un fin específico, queremos desarrollar una idea para lograr transformar una industria, una realidad o simplemente construir capital económico.En cualquiera de los casos es más común que pongamos más atención en lo que queremos lograr y no en el camino para lograrlo, en la ejecución, los aprendizajes.   Pensar en emprender por lo que vas a lograr no es la mejor opción, ya que si algo no podemos controlar es el futuro, aún no conozco alguna historia de emprendedores exitosos que lograron el impacto con la misma idea o concepto inicial que cuando arrancaron, porque aunque seamos muy inteligentes y tengamos proyecciones y números, no podemos controlar la infinidad de variables que van a incidir en transformar y moldear nuestra idea inicial.  Por esto Elon MUsk y otros afirman que en el emprendimiento la idea vale 1% y la ejecución el 99%, no sabemos en qué vamos a terminar pero le estamos entrando por el camino de emprender, estamos dispuestos a entrarle al camino de transformación infinita (Porque tenemos que lanzarnos, fallar, aprender y repetir).A mí me gusta decirle el camino del Guerrero Emprendedor.  El camino de transformación infinita o camino del emprendedor es muy similar (sino el mismo) que el camino del guerrero, me refiero justamente al camino que un guerrero emprende y que nunca termina, el camino de soltar los apegos y prepararse siempre para las batallas que se tendrán constantemente y serán necesarias para lograr el siguiente nivel de transformación, para el cual necesitamos primeramente apertura mental, flexibilidad, resiliencia y humildad.  Imagínate vestido con armadura, en el campo de batalla con tu enemigo frente a frente, con la espada desenvainada.Es una batalla a muerte, su vida o la tuya, ¿Qué pasaría por tu mente? ¿Podrías pensar en el tamaño de tu oponente? o ¿Pensar en algún dolor, o que no dormiste bien y/o cualquier pretexto para no entregar el 100%?, ¡Claro que no! no hay otra opción que comprometerse al momento, conectar tu mente y tu cuerpo para aplicar todo lo que has aprendido en ese momento, si dudas harás que te maten.  “COMO UN SAMURAI, EN UN DUELO A MUERTE DEBE DESENVOLVERSE CON DOMINIO ANTE LA SITUACIÓN Y CON CALMA FRENTE AL PELIGRO DE MUERTE”  ARNO ILGNER EN GUERREROS DE LA ROCA  El guerrero en batalla, a pesar de que su vida podría llegar a su fin, tenía que estar conectado plenamente con su mente y su cuerpo, entregarse al momento, sin miedo ni pensamientos de duda, dar el máximo si quiere continuar con su camino, el camino del aprendizaje.   Un guerrero sabe que aunque va a dar su máximo, no puede controlar los resultados, es por esto que el fin siempre es el aprendizaje, aprender para ser mejor cada vez, entrar a las batallas porque saliendo de esta será más fuerte para luchar contra sus propios miedos, no volverá a cometer los mismos errores.  Generalmente cualquier reto que se presente en tu vida estará caracterizado por el miedo, piénsalo detenidamente, los límites que siempre tenemos son producidos por un miedo a la incertidumbre, por eso el miedo es el mayor enemigo del guerrero, pero siempre los mayores enemigos son los mejores maestros.  El miedo es lo que siempre nos limita a dar el paso, es la ilusión de un posible resultado en el futuro, un resultado que no va de acuerdo con lo que pensamos para nosotros, lo que tenemos planeado, es ahí que recae la importancia de concentrarse en el proceso de aprender.El camino del infinito aprendizaje, ese es nuestro Fin, ya que el resultado no depende de nosotros.  ¡Nunca pongas los huevos en una sola canasta! dice la sabiduría popular, sigue este refrán si quieres ser como todos los demás, nunca estar dispuesto a perderlo todo por aprender.Si emprendiste o piensas emprender el camino del guerrero emprendedor, lánzate con todo, entregarlo todo por aprender, por crecer, es ahí donde sucede la magia, donde se separan los hombres de los inmortales, entrégate al proceso con pasión sin esperar ningún resultado, es ahí donde saldrá la mejor versión de ti, y como el guerrero en batalla estarás siempre con dominio ante la situación y con calma frente al peligro de muerte.	6	1	2020-09-03 16:56:05.490532	2020-09-03 17:04:40.517272	\N	\N	\N	\N	3	Guerrero580x337.jpg	image/jpeg	173472	2020-09-03 17:04:40.506645	7	4
+\.
+
+
+--
+-- Data for Name: schema_migrations; Type: TABLE DATA; Schema: public; Owner: mi_gran_empresa
+--
+
+COPY public.schema_migrations (version) FROM stdin;
+20180627205922
+20180627210013
+20180627210028
+20180627210035
+20180627210116
+20180627210441
+20180628163222
+20180628163313
+20180628163430
+20180628163716
+20181025194827
+20181119181831
+20181119185638
+20181119185741
+20181120211803
+20181121223101
+20181128175611
+20181130164546
+20190108190930
+20190108191819
+20200226203521
+20200226203544
+20200226203831
+20200226203921
+20200226203950
+20200519171944
+\.
+
+
+--
+-- Data for Name: subcategories; Type: TABLE DATA; Schema: public; Owner: mi_gran_empresa
+--
+
+COPY public.subcategories (id, name, created_at, updated_at, subcat_id) FROM stdin;
+1	Emprendimiento	2020-05-19 17:06:05.828388	2020-05-19 17:06:05.828388	1
+2	Empresas	2020-05-19 17:06:12.551125	2020-05-19 17:06:12.551125	2
+3	 \tDesarrollo de Software	2020-05-19 17:06:19.139737	2020-05-19 17:06:19.139737	3
+4	Comida	2020-05-19 17:06:30.991488	2020-05-19 17:06:30.991488	4
+5	Paqueteria	2020-05-19 17:06:36.216566	2020-05-19 17:06:36.216566	5
+6	Lectura	2020-05-19 17:06:43.044217	2020-05-19 17:06:43.044217	6
+\.
+
+
+--
+-- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: mi_gran_empresa
+--
+
+COPY public.users (id, email, password_digest, created_at, updated_at, name) FROM stdin;
+1	faguilera@fundacioncaltia.org	$2a$10$4H..kGGT.K2Ae9E1Cu14SeqOvGCqbpVZ12krFJaRr3.R856wCDJ1K	2020-05-19 16:50:44.298841	2020-05-19 16:50:44.298841	Fernanda Aguilera
+\.
+
+
+--
+-- Name: categories_id_seq; Type: SEQUENCE SET; Schema: public; Owner: mi_gran_empresa
+--
+
+SELECT pg_catalog.setval('public.categories_id_seq', 1, false);
+
+
+--
+-- Name: columnists_id_seq; Type: SEQUENCE SET; Schema: public; Owner: mi_gran_empresa
+--
+
+SELECT pg_catalog.setval('public.columnists_id_seq', 1, false);
+
+
+--
+-- Name: companies_id_seq; Type: SEQUENCE SET; Schema: public; Owner: mi_gran_empresa
+--
+
+SELECT pg_catalog.setval('public.companies_id_seq', 1, false);
+
+
+--
+-- Name: newsletterusers_id_seq; Type: SEQUENCE SET; Schema: public; Owner: mi_gran_empresa
+--
+
+SELECT pg_catalog.setval('public.newsletterusers_id_seq', 1, false);
+
+
+--
+-- Name: posts_id_seq; Type: SEQUENCE SET; Schema: public; Owner: mi_gran_empresa
+--
+
+SELECT pg_catalog.setval('public.posts_id_seq', 6, true);
+
+
+--
+-- Name: posts_post_id_seq; Type: SEQUENCE SET; Schema: public; Owner: mi_gran_empresa
+--
+
+SELECT pg_catalog.setval('public.posts_post_id_seq', 1, false);
+
+
+--
+-- Name: subcategories_id_seq; Type: SEQUENCE SET; Schema: public; Owner: mi_gran_empresa
+--
+
+SELECT pg_catalog.setval('public.subcategories_id_seq', 1, false);
+
+
+--
+-- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: mi_gran_empresa
+--
+
+SELECT pg_catalog.setval('public.users_id_seq', 1, true);
+
+
+--
+-- Name: ar_internal_metadata ar_internal_metadata_pkey; Type: CONSTRAINT; Schema: public; Owner: mi_gran_empresa
+--
+
+ALTER TABLE ONLY public.ar_internal_metadata
+    ADD CONSTRAINT ar_internal_metadata_pkey PRIMARY KEY (key);
+
+
+--
+-- Name: categories categories_pkey; Type: CONSTRAINT; Schema: public; Owner: mi_gran_empresa
+--
+
+ALTER TABLE ONLY public.categories
+    ADD CONSTRAINT categories_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: columnists columnists_pkey; Type: CONSTRAINT; Schema: public; Owner: mi_gran_empresa
+--
+
+ALTER TABLE ONLY public.columnists
+    ADD CONSTRAINT columnists_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: companies companies_pkey; Type: CONSTRAINT; Schema: public; Owner: mi_gran_empresa
+--
+
+ALTER TABLE ONLY public.companies
+    ADD CONSTRAINT companies_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: newsletterusers newsletterusers_pkey; Type: CONSTRAINT; Schema: public; Owner: mi_gran_empresa
+--
+
+ALTER TABLE ONLY public.newsletterusers
+    ADD CONSTRAINT newsletterusers_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: posts posts_pkey; Type: CONSTRAINT; Schema: public; Owner: mi_gran_empresa
+--
+
+ALTER TABLE ONLY public.posts
+    ADD CONSTRAINT posts_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: schema_migrations schema_migrations_pkey; Type: CONSTRAINT; Schema: public; Owner: mi_gran_empresa
+--
+
+ALTER TABLE ONLY public.schema_migrations
+    ADD CONSTRAINT schema_migrations_pkey PRIMARY KEY (version);
+
+
+--
+-- Name: subcategories subcategories_pkey; Type: CONSTRAINT; Schema: public; Owner: mi_gran_empresa
+--
+
+ALTER TABLE ONLY public.subcategories
+    ADD CONSTRAINT subcategories_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: users users_pkey; Type: CONSTRAINT; Schema: public; Owner: mi_gran_empresa
+--
+
+ALTER TABLE ONLY public.users
+    ADD CONSTRAINT users_pkey PRIMARY KEY (id);
+
+
+--
+-- PostgreSQL database dump complete
+--
+
