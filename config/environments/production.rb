@@ -105,9 +105,9 @@ config.action_mailer.smtp_settings = {
 config.paperclip_defaults = {
     storage: :s3,
     s3_credentials: {
-      bucket: "migranempresa",
-      access_key_id: "AKIAJXGL2LAREBVB6V7Q",
-      secret_access_key: "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",
+      bucket: "migranempresa2",
+      access_key_id: "AKIAIZSBFIJUIYMIF3LA",
+      secret_access_key: "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",
       s3_region: "us-east-2",
     }
   }
